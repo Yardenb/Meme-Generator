@@ -19,7 +19,10 @@
     <section class="text-container">
             <input class="text-input" type="text" placeholder="enter text here" onchange="draw(this.value)">
            text color <input type="color" class="bg-color" onchange="onChangeColor(this.value)"/>
+            <section>
            stroke color <input type="color" class="bg-color" onchange="onChangeStrokeColor(this.value)"/>  
+           <input class="stroke-check" type="checkbox" onchange="draw()">
+        </section>
           <button class="increase" onclick="onDecreaseFontSize()">-</button>
           <button class="decrease"onclick="onIncreaseFontSize()" >+</button>
             <button class="align-left" onclick="onChangeAlign('left')">left</button>

@@ -19,6 +19,7 @@ function drawText(str) {
 
 function draw() {
     var str = document.querySelector('.text-input').value
+    var elStroke = document.querySelector('.stroke-check').checked
 
     //meanwhile bg
     gCanvas.fillStyle = 'red'
@@ -27,13 +28,16 @@ function draw() {
 
     
     let font = gMeme.txt
-    gCanvas.lineWidth = 2;
+    gCanvas.lineWidth = 2
     gCanvas.strokeStyle = font.stroke;
     gCanvas.textAlign = font.align; 
     gCanvas.font = `${font.size}px ${font.name}`
     gCanvas.fillStyle = font.color
-    gCanvas.strokeText(str,font.x, font.y);
     gCanvas.fillText(str,font.x, font.y);
+
+    if(elStroke){
+    gCanvas.strokeText(str,font.x, font.y);
+    }
 }
 
 function onChangeColor(color){
