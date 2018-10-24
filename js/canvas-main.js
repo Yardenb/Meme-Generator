@@ -15,7 +15,7 @@ function initCanvas() {
     canvas = document.getElementById('canvas');
     gCanvas = canvas.getContext("2d");
 }
-function init(){
+function init() {
     initCanvas()
     createImgs()
     setKeywords()
@@ -41,19 +41,17 @@ function drawImage(elImg) {
 }
 
 //create the txt to canvas
-function createText(txt) {
-    var elStroke = document.querySelector(`.stroke-check-${txt}`).checked
-    var elShadow = document.querySelector(`.shadow-check-${txt}`).checked
-    var str = document.querySelector(`.${txt}`).value
-    let font = gMeme[txt]
-    checkShadow(font.shadowColor,txt)    
+function drawText(text) {
+    let font = text
+    let str = font.line;
+    checkShadow(font.shadowColor)
     gCanvas.lineWidth = 1
     gCanvas.strokeStyle = font.stroke;
     gCanvas.textAlign = font.align;
     gCanvas.font = `${font.size}px ${font.name}`
     gCanvas.fillStyle = font.color
     gCanvas.fillText(str, font.x, font.y);
-    if (elStroke) {
+    if (font.isStroked) {
         gCanvas.strokeText(str, font.x, font.y);
     }
 }
@@ -62,18 +60,10 @@ function createText(txt) {
 function draw() {
     let el = getCurrImgEl();
     drawImage(el);
-    createText('txtup')
-    // createText('txtdown')
-}
-
-//check shadow text box and color
-function checkShadow(color,txt){
-    gCanvas.shadowColor = color;
-    var elShadow = document.querySelector(`.shadow-check-${txt}`).checked
-    gCanvas.shadowOffsetX = elShadow? 2:0
-    gCanvas.shadowOffsetY = elShadow? 2:0
-     elShadow = document.querySelector(`.shadow-blur-check-${txt}`).checked
-     gCanvas.shadowBlur = elShadow? 10:0
+    drawText(gMeme.currText)
+    for(var i=0; i<gMeme.existText.length; i++){
+    drawText(gMeme.existText[i])
+    }
 }
 
 //change text color and draw new canvas
@@ -109,5 +99,50 @@ function onChangeStrokeColor(txt, color) {
 //change shadow color and draw to new canvas if true
 function onChangeShadowColor(txt, color) {
     changeShadowColor(txt, color)
+    draw()
+}
+
+function onSetFont(txt, name) {
+    setFont(txt, name)
+    draw()
+}
+
+function onTextUp(txt) {
+    textUp(txt)
+    draw()
+}
+
+function onTextDown(txt) {
+    textDown(txt)
+    draw()
+}
+
+function openUpTextBar() {
+    elText = document.querySelector('.up-text-bar')
+    elText.classList.toggle('reveal')
+}
+
+function openDownTextBar() {
+    elText = document.querySelector('.down-text-bar')
+    elText.classList.toggle('reveal')
+}
+
+function onShadowAdd(){
+    shadowAdd()
+    draw()
+}
+
+function onStrokeAdd(){
+    strokeAdd()
+    draw()
+}
+
+function onBlurAdd(){
+    blurAdd()
+    draw()
+}
+
+function onCreateText() {
+    createText()
     draw()
 }

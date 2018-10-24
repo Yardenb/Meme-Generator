@@ -42,33 +42,43 @@
             <button class="clear-btn" onclick="onClearCanvas()">Clear</button>
             <a class="save-btn" onclick="onSaveCanvas()" download="YourCanvas.jpg">Save</a>
         </section>
-
-
         <button class="increase" onclick="OnGoToGallery()">go to gallery</button>
-        <!-- first text bar -->
         <section class="text-container">
-            <input class="txtup" type="text" placeholder="enter text here" onkeydown="draw(this.value)">
+        <!-- first text bar -->
+        <section class="up-text-bar">
+            <input class="currText" type="text" placeholder="enter text here" onkeydown="importText(this.value)">
+            <button class="move-up" onclick="onTextUp('currText')">up</button>
+            <button class="move-down" onclick="onTextDown('currText')">down</button>
             <section class="font-colors">
                 Text Color:
-                <input type="color" class="bg-color" onchange="onChangeColor('txtup',this.value)" /> Stroke Color:
-                <input type="color" class="bg-color" onchange="onChangeStrokeColor('txtup',this.value)" /> Add/Remove
-                <input class="stroke-check-txtup" type="checkbox" onchange="draw()">
+                <input type="color" class="bg-color" onchange="onChangeColor('currText',this.value)" /> Stroke Color:
+                <input type="color" class="bg-color" onchange="onChangeStrokeColor('currText',this.value)" /> Add/Remove
+                <input class="stroke-check" type="checkbox" onchange="onStrokeAdd()">
             </section>
             <section class="font-btns">
-                <button class="increase up btn-img" onclick="onIncreaseFontSize('txtup')"></button>
-                <button class="decrease up btn-img" onclick="onDecreaseFontSize('txtup')"></button>
-                <button class="align-left up btn-img" onclick="onChangeAlign('txtup','left')"></button>
-                <button class="align-center up btn-img" onclick="onChangeAlign('txtup','center')"></button>
-                <button class="align-right up btn-img" onclick="onChangeAlign('txtup','right')"></button>
-
+                <button class="increase up btn-img" onclick="onIncreaseFontSize('currText')"></button>
+                <button class="decrease up btn-img" onclick="onDecreaseFontSize('currText')"></button>
+                <button class="align-left up btn-img" onclick="onChangeAlign('currText','left')"></button>
+                <button class="align-center up btn-img" onclick="onChangeAlign('currText','center')"></button>
+                <button class="align-right up btn-img" onclick="onChangeAlign('currText','right')"></button>
+                </section>
                 <section class="text-shadow">
                     Shadow Color:
-                    <input type="color" class="shadow-color" value="#ffffff" onchange="onChangeShadowColor('txtup',this.value)"
-                    /> Add/Remove
-                    <input class="shadow-check-txtup" type="checkbox" onchange="draw()"> Blur:
-                    <input class="shadow-blur-check-txtup" type="checkbox" onchange="draw()">
+                    <input type="color" class="shadow-color" value="#ffffff" onchange="onChangeShadowColor('currText',this.value)"/> 
+                    Add/Remove <input class="shadow-check" type="checkbox" onchange="onShadowAdd(this)"> 
+                    Blur:<input class="shadow-blur-check" type="checkbox" onchange="onBlurAdd(this)">
+                </section>
+                    <select id="font-select" onchange="onSetFont('currText',this.value)">
+                        <option value="" disabled selected>Choose Font</option>
+                        <option value="Ariel">Ariel</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="Times New Roman">Times New Roman</option>
+                    </select>
+                    <button class="confirm-text" onclick="onCreateText()">confirm</button>
                 </section>
                 <!-- second-text-bar -->
+                <!-- <button class="btn-down-text" onclick="openDownTextBar()">open lower text bar</button>
+                <section class="down-text-bar">
                 <input class="txtdown" type="text" placeholder="enter text here" onkeydown="draw(this.value)">
                 <section class="font-colors up">
                     Text Color:
@@ -91,8 +101,15 @@
                     <input class="shadow-check-txtdown" type="checkbox" onchange="draw()"> Blur:
                     <input class="shadow-blur-check-txtdown" type="checkbox" onchange="draw()">
                 </section>
-
-                <!-- ****************CANVAS END***************** -->
+                <select id="font-select" onchange="onSetFont('txtdown',this.value)">
+                        <option value="" disabled selected>Choose Font</option>
+                        <option value="Ariel">Ariel</option>
+                        <option value="fantasy">Fantasy</option>
+                        <option value="TimesNewRoman">Times New Roman</option>
+                    </select>
+                    </section> -->
+                </section>
+                    <!-- ****************CANVAS END***************** -->
                 <script src="js/util-service.js"></script>
                 <script src="js/img-service.js"></script>
                 <script src="js/gallery.js"></script>

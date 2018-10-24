@@ -3,7 +3,8 @@
 var gMeme = {
     img: 5,
     elCurrImg: undefined,
-   txtup: {
+   currText: {
+            line:'',
             size: 30,
             align: 'center',
             color: 'black',
@@ -12,18 +13,13 @@ var gMeme = {
             x:350,
             y:50,
             shadowColor: 'white',
+            isStroked: false,
+            isBlured : false,
+            isShadow: false
         },
-    txtdown: {
-            size: 30,
-            align: 'center',
-            color: 'black',
-            stroke:'black',
-            name: 'Ariel',
-            x:350,
-            y:430,
-            shadowColor: 'white',
+    existText:[] 
     }
-}
+
 
 //font location on canvas map
 var gFontlocation = {
@@ -74,4 +70,61 @@ function changeAlign(txt,align){
 //changing the shadow color
 function changeShadowColtextor(txt,color){
     gMeme[txt].shadowColor = color;
+}
+
+function setFont(txt,name){
+    gMeme[txt].name = name
+}
+
+function textUp(txt){
+    gMeme[txt].y -= 15;
+}
+
+function textDown(txt){
+    gMeme[txt].y += 15;
+}
+
+function createText(){
+    gMeme.existText.push(gMeme.currText)
+    gMeme.currText = {
+            line:'',
+            size: 30,
+            align: 'center',
+            color: 'black',
+            stroke:'black',
+            name: 'Ariel',
+            x:350,
+            y:50,
+            shadowColor: 'white',
+            isStroked: false,
+            isBlured : false,
+            isShadow: false
+    }
+}
+
+function strokeAdd(){
+    elStroke = document.querySelector('.stroke-check').checked
+    gMeme.currText.isStroked = elStroke? true : false;
+}
+
+function shadowAdd(){
+    elShadow = document.querySelector('.shadow-check').checked
+    gMeme.currText.isShadow = elShadow? true : false;
+}
+
+function blurAdd(){
+    elBlur = document.querySelector('.shadow-blur-check').checked
+    gMeme.currText.isBlured = elBlur? true : false;
+}
+
+function importText(line){
+    gMeme.currText.line = line;
+    draw()
+}
+
+function checkShadow(color) {
+    gCanvas.shadowColor = color;
+    gCanvas.shadowOffsetX = gMeme.currText.isShadow ? 2 : 0
+    gCanvas.shadowOffsetY = gMeme.currText.isShadow ? 2 : 0
+    gCanvas.shadowBlur = gMeme.currText.isBlured ? 10 : 0
 }

@@ -6,7 +6,7 @@ button{
     background-color: white;
     cursor: pointer;
     }
-    
+
     button:hover{
         background-color: #c8e6ff
     }
@@ -85,4 +85,8 @@ button{
     
     .text-shadow{
         margin-bottom:20px;
+    }
+  
+    .reveal{
+        display:block;
     }
