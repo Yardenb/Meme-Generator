@@ -8,17 +8,29 @@ function createImgs() {
     gMemes = [
         createImgEl(['banana', 'dudi', 'abi']), createImgEl(['banana']), createImgEl(['banana']), createImgEl(['banana']), createImgEl(['banana']),
         createImgEl(['pip']), createImgEl(['cry']), createImgEl(['apple']), createImgEl(['funny']), createImgEl(['crazy']), createImgEl(['banana']),
-        createImgEl(['banana']), createImgEl(['laugh']), createImgEl(['cat']), createImgEl(['ba'])
+        createImgEl(['banana']), createImgEl(['laugh']), createImgEl(['cat']), createImgEl(['banana rama'])
     ]
 }
-function filterImg(str) {
+function filterImgWholeWord(str) {
+    //add support to 2 words str finds 1 str
     var res = [];
     res = gMemes.filter(function (meme) {
-        if (meme['keywords'].includes(str)) {
-        }
         return meme.keywords.includes(str);
     });
     return res;
+}
+function filterByPartialWord(str){
+    let filtered=[];
+    gMemes.forEach(meme=>{
+        let CurrFiltered=meme.keywords.filter(word=>{
+            return word.includes(str);  
+        })
+        if(CurrFiltered[0]){
+            filtered=filtered.concat(CurrFiltered);
+
+        }
+    })
+    return filtered;
 }
 function createImgEl(keywords) {
     return {
@@ -41,7 +53,4 @@ function setKeywords() {
 function getImgs() {
     return gMemes;
 }
-// function filterKeywords(keyword) {
-//     return gImgs.keywords.filter(gImgs => gImgs.keywords === keyword);
-//     // renderGallery(filtered)
-// }
+

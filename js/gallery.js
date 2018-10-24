@@ -37,7 +37,7 @@ function toggleCanvasGalley(){
     elGallery.classList.toggle('hidden');
 }
 function onFilterByKeywords(elKeywords){
-    let filtererd=filterImg(elKeywords.innerText);
+    let filtererd=filterImgWholeWord(elKeywords.innerText);
     renderGallery(filtererd)   
 }
 
@@ -45,4 +45,13 @@ function onImgChosen(elImg){
     setImgEl(elImg);
     toggleCanvasGalley();
     drawImage(elImg);
+}
+function onSearchText(elSearch){
+    let imgs=filterByPartialWord(elSearch.value);
+    console.log(imgs);
+    
+    // console.log(elSearch.value);
+    // var filtered=filterImg(elSearch.value);
+    // console.log(filtered);
+    
 }
