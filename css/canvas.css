@@ -1,6 +1,6 @@
 button{
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     border-radius: 10px;
     margin: 0 auto;
     background-color: white;
@@ -42,7 +42,7 @@ button{
         border-radius: 10px;
         text-align: center;
         margin:auto;
-        width: 300px;
+        width: 450px;
         background-color: #6f96b7;
         padding:20px;
         border: 1px solid black;
@@ -83,3 +83,6 @@ button{
         margin: 0 auto;
     }
     
+    .text-shadow{
+        margin-bottom:20px;
+    }
