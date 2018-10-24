@@ -3,6 +3,7 @@
 function initGallery(){
     createImgs(); 
     renderGallery();
+    setKeywords();
 }
 
 function renderGallery() {
@@ -16,6 +17,14 @@ function renderGallery() {
 }
 
 function onShowKeyWords(elWordsBox){
+    let keywords=getFromStorage('keywords');
+    let strHTMLS='';
+    keywords.forEach(keyword => {
+        strHTMLS+=`<span class="keyword-item">${keyword}</span>`
+    });
+    document.querySelector('.key-words-container').innerHTML=strHTMLS;
+    
+
     elWordsBox.classList.toggle('hidden');
     elWordsBox.classList.toggle('grid');
 }

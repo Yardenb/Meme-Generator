@@ -5,7 +5,6 @@ var gCanvas;
 
 function initCanvas() {
     let width = window.innerWidth;
-    console.log(width);
     if (width > 750) {
         document.querySelector('.canvas-holder').innerHTML = `<canvas class="canvas-small" id="canvas" height="466" width="700">`;
     } else {
@@ -24,19 +23,16 @@ function onSaveCanvas() {
 
 
 function drawImage(elImg) {
-    // gCanvas.drawImage(elImg, 0, 0);
-    //if img is not ready yet, don't try to draw + try to draw in 50 ms
     if (!elImg.complete) {
         setTimeout(elImg => drawImage(elImg), 50);
         return;
     }
-
     gCanvas.drawImage(elImg, 0, 0, canvas.width, canvas.height)
 }
 function createText(txt) {
     var elStroke = document.querySelector(`.stroke-check-${txt}`).checked
     var str = document.querySelector(`.${txt}`).value
-    let font = gMeme[txt]
+    let font = gMemes[txt]
     gCanvas.lineWidth = 1
     gCanvas.strokeStyle = font.stroke;
     gCanvas.textAlign = font.align;
