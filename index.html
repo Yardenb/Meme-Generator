@@ -48,28 +48,33 @@
                 <a class="save-btn" onclick="onSaveCanvas()" download="YourCanvas.jpg">Save</a>
             </section>
         
-        
+            <button class="increase" onclick="OnGoToGallery()">go to gallery</button>
             <section class="text-container">
                 <input class="txtup" type="text" placeholder="enter text here" onkeydown="draw(this.value)">
         <!-- first text bar -->
                 <section class="font-colors">
                     Text Color: <input type="color" class="bg-color" onchange="onChangeColor('txtup',this.value)" />
                     Stroke Color: <input type="color" class="bg-color" onchange="onChangeStrokeColor('txtup',this.value)" />
-                    <input class="stroke-check-txtup" type="checkbox" onchange ="draw()">
+                    Add/Remove<input class="stroke-check-txtup" type="checkbox" onchange ="draw()">
                 </section>
-                <button class="increase" onclick="OnGoToGallery()">go to gallery</button>
                 <section class="font-btns">
                     <button class="increase up btn-img" onclick="onIncreaseFontSize('txtup')"></button>
                     <button class="decrease up btn-img" onclick="onDecreaseFontSize('txtup')"></button>
                     <button class="align-left up btn-img" onclick="onChangeAlign('txtup','left')"></button>
                     <button class="align-center up btn-img" onclick="onChangeAlign('txtup','center')"></button>
                     <button class="align-right up btn-img" onclick="onChangeAlign('txtup','right')"></button>
+
+                    <section class="text-shadow">
+                        Shadow Color: <input type="color" class="shadow-color" value="#ffffff" onchange="onChangeShadowColor('txtup',this.value)"/>
+                        Add/Remove<input class="shadow-check-txtup" type="checkbox" onchange ="draw()">
+                        Blur:<input class="shadow-blur-check-txtup" type="checkbox" onchange ="draw()">
+                    </section>
         <!-- second-text-bar -->
                     <input class="txtdown" type="text" placeholder="enter text here" onkeydown="draw(this.value)">
                     <section class="font-colors up">
                         Text Color: <input type="color" class="bg-color" onchange="onChangeColor('txtdown',this.value)" />
                         Stroke Color: <input type="color" class="bg-color" onchange="onChangeStrokeColor('txtdown',this.value)" />
-                        <input class="stroke-check-txtdown" type="checkbox" onchange="draw()">
+                        Add/Remove<input class="stroke-check-txtdown" type="checkbox" onchange="draw()">
                     </section>
                     <section class="font-btns">
                         <button class="increase down btn-img" onclick="onIncreaseFontSize('txtdown')"></button>
@@ -78,6 +83,12 @@
                         <button class="align-center down btn-img" onclick="onChangeAlign('txtdown','center')"></button>
                         <button class="align-right down btn-img" onclick="onChangeAlign('txtdown','right')"></button>
                     </section>
+                    <section class="text-shadow">
+                        Shadow Color: <input type="color" class="shadow-color" value="#ffffff" onchange="onChangeShadowColor('txtup',this.value)"/>
+                        Add/Remove<input class="shadow-check-txtdown" type="checkbox" onchange ="draw()">
+                        Blur:<input class="shadow-blur-check-txtdown" type="checkbox" onchange ="draw()">
+                    </section>
+
         
 
 
