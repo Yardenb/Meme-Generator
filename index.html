@@ -10,7 +10,7 @@
     <title>Meme Gakkery</title>
 </head>
 
-<body onload="initCanvas()">
+<body onload="init()">
     <!-- ****************GALLERY START***************** -->
     <div class="gallery-container hidden">
         <header>Meme Gallery</header>
@@ -19,10 +19,18 @@
                 <button class="btn" onclick="toggleCanvasGalley()">go to gallery</button>
                 <div class="nav-item upload">upload pic in here</div>
             </nav>
-            <section class="key-words" onclick="onShowKeyWords(this.children[0])">
-               Choose key words
+            <section class="keywords">
+               <div class="keywords-header flex justify-center">
+                <span class="keyword-headline" onclick="onShowKeyWords()" >Choose key words</span> 
+                <div class="search-box">
+                    <label>
+                        Search:
+                        <input type="text" name="text" value="" placeholder="Enter Keyword" />
+                    </label>
+                </div>
+               </div>
                 <!-- add search -->
-                <div class="key-words-container hidden"></div>
+                <div class="keywords-container hidden"></div>
             </section>
             <section class="img-container ">
                 Choose your meme

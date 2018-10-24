@@ -15,7 +15,11 @@ function initCanvas() {
     canvas = document.getElementById('canvas');
     gCanvas = canvas.getContext("2d");
 }
-
+function init(){
+    initCanvas();
+    createImgs(); 
+    setKeywords();
+}
 //clear the canvas
 function onClearCanvas() {
     gCanvas.clearRect(0, 0, canvas.width, canvas.height)

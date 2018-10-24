@@ -18,15 +18,15 @@ button{
     }
     
     
-    .align-left{
+    button.align-left{
         background-image: url("../img/left.png");
     }
     
-    .align-right{
+    button.align-right{
         background-image: url("../img/right.png")
     }
     
-    .align-center{
+     button.align-center{
         background-image: url("../img/center.png")
     }
     
