@@ -19,10 +19,18 @@
                 <button class="btn" onclick="toggleCanvasGalley()">go to gallery</button>
                 <div class="nav-item upload">upload pic in here</div>
             </nav>
-            <section class="key-words" onclick="onShowKeyWords(this.children[0])">
-               Choose key words
+            <section class="keywords">
+               <div class="keywords-header flex justify-center">
+                <span class="keyword-headline" onclick="onShowKeyWords()" >Choose key words</span> 
+                <div class="search-box">
+                    <label>
+                        Search:
+                        <input type="text" name="text" value="" placeholder="Enter Keyword" />
+                    </label>
+                </div>
+               </div>
                 <!-- add search -->
-                <div class="key-words-container hidden"></div>
+                <div class="keywords-container hidden"></div>
             </section>
             <section class="img-container ">
                 Choose your meme
@@ -76,38 +84,6 @@
                     </select>
                     <button class="confirm-text" onclick="onCreateText()">confirm</button>
                 </section>
-                <!-- second-text-bar -->
-                <!-- <button class="btn-down-text" onclick="openDownTextBar()">open lower text bar</button>
-                <section class="down-text-bar">
-                <input class="txtdown" type="text" placeholder="enter text here" onkeydown="draw(this.value)">
-                <section class="font-colors up">
-                    Text Color:
-                    <input type="color" class="bg-color" onchange="onChangeColor('txtdown',this.value)" /> Stroke Color:
-                    <input type="color" class="bg-color" onchange="onChangeStrokeColor('txtdown',this.value)"
-                    /> Add/Remove
-                    <input class="stroke-check-txtdown" type="checkbox" onchange="draw()">
-                </section>
-                <section class="font-btns">
-                    <button class="increase down btn-img" onclick="onIncreaseFontSize('txtdown')"></button>
-                    <button class="decrease down btn-img" onclick="onDecreaseFontSize('txtdown')"></button>
-                    <button class="align-left down btn-img" onclick="onChangeAlign('txtdown','left')"></button>
-                    <button class="align-center down btn-img" onclick="onChangeAlign('txtdown','center')"></button>
-                    <button class="align-right down btn-img" onclick="onChangeAlign('txtdown','right')"></button>
-                </section>
-                <section class="text-shadow">
-                    Shadow Color:
-                    <input type="color" class="shadow-color" value="#ffffff" onchange="onChangeShadowColor('txtup',this.value)"
-                    /> Add/Remove
-                    <input class="shadow-check-txtdown" type="checkbox" onchange="draw()"> Blur:
-                    <input class="shadow-blur-check-txtdown" type="checkbox" onchange="draw()">
-                </section>
-                <select id="font-select" onchange="onSetFont('txtdown',this.value)">
-                        <option value="" disabled selected>Choose Font</option>
-                        <option value="Ariel">Ariel</option>
-                        <option value="fantasy">Fantasy</option>
-                        <option value="TimesNewRoman">Times New Roman</option>
-                    </select>
-                    </section> -->
                 </section>
                     <!-- ****************CANVAS END***************** -->
                 <script src="js/util-service.js"></script>
