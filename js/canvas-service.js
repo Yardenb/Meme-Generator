@@ -19,7 +19,7 @@ var gMeme = {
             stroke:'black',
             name: 'Ariel',
             x:400,
-            y:500
+            y:200
     }
 }
 

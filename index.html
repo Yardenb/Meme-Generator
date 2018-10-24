@@ -36,7 +36,9 @@
         </div>
     </div>
     <!-- ****************GALLERY END***************** -->
-    <!-- ****************CANVAS START***************** -->
+
+
+    <!-- ****************CANVAS START******************************************************************************************************************** -->
     <div class="canvas-container">
             <header>Meme Generator</header>
             <div class="canvas-holder"></div>
@@ -63,7 +65,7 @@
                     <button class="align-center up btn-img" onclick="onChangeAlign('txtup','center')"></button>
                     <button class="align-right up btn-img" onclick="onChangeAlign('txtup','right')"></button>
         <!-- second-text-bar -->
-                    <input class="txtdown" type="text" placeholder="enter text here" onchange="draw(this.value)">
+                    <input class="txtdown" type="text" placeholder="enter text here" onkeydown="draw(this.value)">
                     <section class="font-colors up">
                         Text Color: <input type="color" class="bg-color" onchange="onChangeColor('txtdown',this.value)" />
                         Stroke Color: <input type="color" class="bg-color" onchange="onChangeStrokeColor('txtdown',this.value)" />
