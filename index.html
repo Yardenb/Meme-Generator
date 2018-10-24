@@ -53,14 +53,13 @@
         <button class="increase" onclick="OnGoToGallery()">go to gallery</button>
         <section class="text-container">
         <!-- first text bar -->
-        <section class="up-text-bar">
             <input class="currText" type="text" placeholder="enter text here" onkeydown="importText(this.value)">
             <button class="move-up" onclick="onTextUp('currText')">up</button>
             <button class="move-down" onclick="onTextDown('currText')">down</button>
             <section class="font-colors">
                 Text Color:
                 <input type="color" class="bg-color" onchange="onChangeColor('currText',this.value)" /> Stroke Color:
-                <input type="color" class="bg-color" onchange="onChangeStrokeColor('currText',this.value)" /> Add/Remove
+                <input type="color" class="stroke-color" onchange="onChangeStrokeColor('currText',this.value)" /> Add/Remove
                 <input class="stroke-check" type="checkbox" onchange="onStrokeAdd()">
             </section>
             <section class="font-btns">
@@ -84,6 +83,8 @@
                     </select>
                     <button class="confirm-text" onclick="onCreateText()">confirm</button>
                 </section>
+                <section class="lines-box">
+
                 </section>
                     <!-- ****************CANVAS END***************** -->
                 <script src="js/util-service.js"></script>

@@ -72,18 +72,22 @@ function changeShadowColtextor(txt,color){
     gMeme[txt].shadowColor = color;
 }
 
+//set font family
 function setFont(txt,name){
     gMeme[txt].name = name
 }
 
+//moving text up by changing the y
 function textUp(txt){
     gMeme[txt].y -= 15;
 }
 
+//moving text down by changing the y
 function textDown(txt){
     gMeme[txt].y += 15;
 }
 
+//push the new text to the text array
 function createText(){
     gMeme.existText.push(gMeme.currText)
     gMeme.currText = {
@@ -102,29 +106,35 @@ function createText(){
     }
 }
 
+//updating stroke state in the objective
 function strokeAdd(){
     elStroke = document.querySelector('.stroke-check').checked
     gMeme.currText.isStroked = elStroke? true : false;
 }
 
+//updating shadow state in the objective
 function shadowAdd(){
     elShadow = document.querySelector('.shadow-check').checked
     gMeme.currText.isShadow = elShadow? true : false;
 }
 
+//updating blur state in the objective
 function blurAdd(){
     elBlur = document.querySelector('.shadow-blur-check').checked
     gMeme.currText.isBlured = elBlur? true : false;
 }
 
+//updating the line in the objective
 function importText(line){
     gMeme.currText.line = line;
     draw()
 }
 
-function checkShadow(color) {
+//update shadow state
+function checkShadow(color,font) {
     gCanvas.shadowColor = color;
-    gCanvas.shadowOffsetX = gMeme.currText.isShadow ? 2 : 0
-    gCanvas.shadowOffsetY = gMeme.currText.isShadow ? 2 : 0
-    gCanvas.shadowBlur = gMeme.currText.isBlured ? 10 : 0
+    gCanvas.shadowOffsetX = font.isShadow ? 2 : 0
+    gCanvas.shadowOffsetY = font.isShadow ? 2 : 0
+    gCanvas.shadowBlur = font.isBlured ? 10 : 0
 }
+

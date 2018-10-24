@@ -15,6 +15,8 @@ function initCanvas() {
     canvas = document.getElementById('canvas');
     gCanvas = canvas.getContext("2d");
 }
+
+//init function in the load of the page
 function init() {
     initCanvas()
     createImgs()
@@ -44,7 +46,7 @@ function drawImage(elImg) {
 function drawText(text) {
     let font = text
     let str = font.line;
-    checkShadow(font.shadowColor)
+    checkShadow(font.shadowColor,font)
     gCanvas.lineWidth = 1
     gCanvas.strokeStyle = font.stroke;
     gCanvas.textAlign = font.align;
@@ -102,47 +104,61 @@ function onChangeShadowColor(txt, color) {
     draw()
 }
 
+//set font family
 function onSetFont(txt, name) {
     setFont(txt, name)
     draw()
 }
 
+//moving text up by button
 function onTextUp(txt) {
     textUp(txt)
     draw()
 }
 
+//moving text down by button
 function onTextDown(txt) {
     textDown(txt)
     draw()
 }
 
-function openUpTextBar() {
-    elText = document.querySelector('.up-text-bar')
-    elText.classList.toggle('reveal')
-}
-
-function openDownTextBar() {
-    elText = document.querySelector('.down-text-bar')
-    elText.classList.toggle('reveal')
-}
-
+//add shadow and update on the current Meme to true
 function onShadowAdd(){
     shadowAdd()
     draw()
 }
 
+//add stroke and update on the current Meme to true
 function onStrokeAdd(){
     strokeAdd()
     draw()
 }
 
+//add blur and update on the current Meme to true
 function onBlurAdd(){
     blurAdd()
     draw()
 }
 
+//pushing text to array of existing text ,reset values, and render the all the text we have
 function onCreateText() {
     createText()
+    resetValues()
     draw()
+}
+
+//reset all the values on the text box
+function resetValues(){
+    document.querySelector('.currText').value = ''
+    document.querySelector('.bg-color').value = '#000000'
+    document.querySelector('.stroke-color').value = '#000000'
+    document.querySelector('.shadow-color').value = '#ffffff'
+    document.querySelector('.shadow-check').checked = false
+    document.querySelector('.shadow-blur-check').checked = false
+    document.querySelector('.stroke-check').checked = false
+}
+
+function addLineButton(){
+    var elTextBox = document.querySelector('.lines-box');
+    var strHTML = `<button>`
 }
