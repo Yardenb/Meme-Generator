@@ -5,7 +5,6 @@ var gCanvas;
 //first canvas choose by resolution
 function initCanvas() {
     let width = window.innerWidth;
-    console.log(width);
     if (width > 750) {
         document.querySelector('.canvas-holder').innerHTML = `<canvas class="canvas-small" id="canvas" height="466" width="700">`;
 
@@ -15,6 +14,11 @@ function initCanvas() {
     }
     canvas = document.getElementById('canvas');
     gCanvas = canvas.getContext("2d");
+}
+function init(){
+    initCanvas()
+    createImgs()
+    setKeywords()
 }
 
 //clear the canvas
@@ -29,13 +33,10 @@ function onSaveCanvas() {
 
 //draw the image
 function drawImage(elImg) {
-    // gCanvas.drawImage(elImg, 0, 0);
-    //if img is not ready yet, don't try to draw + try to draw in 50 ms
     if (!elImg.complete) {
         setTimeout(elImg => drawImage(elImg), 50);
         return;
     }
-
     gCanvas.drawImage(elImg, 0, 0, canvas.width, canvas.height)
 }
 

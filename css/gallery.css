@@ -51,6 +51,9 @@ header{
     text-align: center;
     cursor: pointer;
 }
+.btn{
+    width: 100px;
+}
 /* GALLERY */
 .img-container{
     text-align: center;
