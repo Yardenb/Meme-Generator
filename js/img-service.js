@@ -5,14 +5,13 @@ var id = 1;
 
 function createImgs() {
     gImgs = [
-        createImg(['banana', 'dudi', 'abi']), createImg(['banana']),  createImg(['banana']), createImg(['banana']), createImg(['banana']),
-        createImg(['banana']), createImg(['banana']), createImg(['banana']), createImg(['banana']), createImg(['banana']), createImg(['banana']),
-        createImg(['banana']), createImg(['banana']), createImg(['banana']), createImg(['banana'])
+        createImgEl(['banana', 'dudi', 'abi']), createImgEl(['banana']),  createImgEl(['banana']), createImgEl(['banana']), createImgEl(['banana']),
+        createImgEl(['banana']), createImgEl(['banana']), createImgEl(['banana']), createImgEl(['banana']), createImgEl(['banana']), createImgEl(['banana']),
+        createImgEl(['banana']), createImgEl(['banana']), createImgEl(['banana']), createImgEl(['banana'])
     ]
 }
 
-function createImg(keywords) {
-
+function createImgEl(keywords) {
     return {
         id: id++,
         url: `img/${id}.jpg`,
@@ -21,6 +20,7 @@ function createImg(keywords) {
 }
 
 function getImgs(){
+ 
     return gImgs;
 }
 // function filterKeywords(keyword) {

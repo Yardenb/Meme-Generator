@@ -1,0 +1,85 @@
+button{
+    width: 40px;
+    height: 40px;
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: white;
+    cursor: pointer;
+    }
+    
+    button:hover{
+        background-color: #c8e6ff
+    }
+    
+    .btn-img{
+        background-size: 70%;
+        background-repeat: no-repeat;
+        background-position: center;
+    }
+    
+    
+    .align-left{
+        background-image: url("../img/left.png");
+    }
+    
+    .align-right{
+        background-image: url("../img/right.png")
+    }
+    
+    .align-center{
+        background-image: url("../img/center.png")
+    }
+    
+    .increase{
+        background-image: url("../img/plus.png")
+    }
+    
+    .decrease{
+        background-image: url("../img/minus.png")
+    }
+    
+    .text-container{
+        border-radius: 10px;
+        text-align: center;
+        margin:auto;
+        width: 300px;
+        background-color: #6f96b7;
+        padding:20px;
+        border: 1px solid black;
+    }
+    
+    .text-input{
+        text-align: center;
+        margin-top:20px;
+        width: 90%;
+    }
+    
+    .font-btns{
+        margin-top:20px;
+        text-align: center;
+        margin-bottom:20px;
+    }
+    
+    .font-colors{
+        margin-top:20px;
+    }
+    
+    .nav-bar{
+        background-color: #48D1CC;
+    }
+    
+    header{
+        background-color:#6f96b7;
+        color: #000;
+        text-align: center;
+        font-size: 3rem;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+    
+    .canvas{
+        display: block;
+        outline: 1px solid black;
+        margin: 0 auto;
+    }
+    

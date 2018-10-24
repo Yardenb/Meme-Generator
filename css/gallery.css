@@ -10,6 +10,16 @@ html, body{
 a{
     text-decoration: none;
 }
+@media (min-width: 700){
+    .canvas-small{
+        display: none;
+    }
+    .canvas-small{
+        display: block;
+    }
+}
+
+
 /* HEADER */
 header{
     background-color:#00FA9A;
@@ -34,9 +44,7 @@ header{
     color: red;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
-.canvas-link:visited{
-    
-}
+
 /* KEY WORDS */
 .key-words{
     background-color: #FFD700;
@@ -44,7 +52,7 @@ header{
     cursor: pointer;
 }
 /* GALLERY */
-.gallery-container{
+.img-container{
     text-align: center;
     padding: 0 10px;
     margin: 0 auto;
