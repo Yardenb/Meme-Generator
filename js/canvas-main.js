@@ -15,6 +15,7 @@ function initCanvas(img) {
 //clear the canvas
 function onClearCanvas() {
     gCanvas.clearRect(0, 0, canvas.width, canvas.height)
+    gMeme.existText.splice(1);
 }
 //save canvas
 function onSaveCanvas() {

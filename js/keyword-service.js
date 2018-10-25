@@ -12,10 +12,7 @@ function setKeywords() {
             }
         })
     });
-    //TODO- if there is a list in storage, add the count and then save it to storage
     saveToStorage('keywords', allKeywordsData);
-
-
 }
 function handleKeyword(word) {
     let keywords = getFromStorage('keywords');
@@ -35,7 +32,7 @@ function handleKeyword(word) {
         }
         keywords.push(newWord);
     }
-    calcWordPercent(keywords);
+    // calcWordPercent(keywords);
     calcWordPercent(keywords);
     wordsSizeByPrecent(keywords);
     saveToStorage('keywords', keywords);
@@ -68,4 +65,7 @@ function wordsSizeByPrecent(words){
            word.size='xl';
        }
     })    
+}
+function getKeywords(){
+    return getFromStorage('keywords');
 }
