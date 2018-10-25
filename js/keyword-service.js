@@ -4,37 +4,14 @@ function setKeywords() {
     let allKeywordsData = []
     gMemes.forEach(meme => {
         meme.keywords.forEach(keyword => {
-            // console.log('keyword',keyword);
-
             //set unique list
             if (!allKeywords.includes(keyword)) {
                 let newKeyword = { name: keyword, searchCount: 0, percent: 0, size: 'xs' }
-
-                // console.log(meme);
                 allKeywords.push(keyword);
                 allKeywordsData.push(newKeyword);
-
             }
-            // else {
-
-            //     let idx = allKeywordsData.findIndex((currKeyword, idx) => {
-
-            //         console.log({currKeyword})
-            //         console.log('cur key name', currKeyword.name, 'type', typeof (currKeyword.name));
-            //         console.log('key name', keyword, 'type', typeof (keyword));
-            //         var isFound = (currKeyword.name === keyword);
-            //         // if(isFound) debugger;
-            //         return isFound
-
-
-            //     })
-            //     console.log('idx', idx);
-
-            // }
-
         })
     });
-    //CALC PERCENT
     //TODO- if there is a list in storage, add the count and then save it to storage
     saveToStorage('keywords', allKeywordsData);
 
