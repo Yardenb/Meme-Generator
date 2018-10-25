@@ -6,10 +6,10 @@ var gCanvas;
 function initCanvas() {
     let width = window.innerWidth;
     if (width > 750) {
-        document.querySelector('.canvas-holder').innerHTML = `<canvas class="canvas-small" id="canvas" height="466" width="700">`;
+        document.querySelector('.canvas-holder').innerHTML = `<canvas class="canvas-small" id="canvas" height="466" width="700" onclick="onCanvas(event)">`;
 
     } else {
-        document.querySelector('.canvas-holder').innerHTML = `<canvas class="canvas-small" id="canvas" height="266" width="400" >`;
+        document.querySelector('.canvas-holder').innerHTML = `<canvas class="canvas-small" id="canvas" height="266" width="400"  onclick="onCanvas(event)">`;
 
     }
     canvas = document.getElementById('canvas');
@@ -56,14 +56,16 @@ function drawText(text) {
     if (font.isStroked) {
         gCanvas.strokeText(str, font.x, font.y);
     }
+    font.xwidth = gCanvas.measureText(font.line).width
+    font.yheight = font.size;
 }
 
 //draw canvas after checking prefernces
 function draw() {
     let el = getCurrImgEl();
     drawImage(el);
-    for(var i=0; i<gMeme.existText.length; i++){
-    drawText(gMeme.existText[i])
+    for (var i = 0; i < gMeme.existText.length; i++) {
+        drawText(gMeme.existText[i])
     }
 }
 
@@ -122,19 +124,19 @@ function onTextDown(txt) {
 }
 
 //add shadow and update on the current Meme to true
-function onShadowAdd(el){
+function onShadowAdd(el) {
     shadowAdd(el)
     draw()
 }
 
 //add stroke and update on the current Meme to true
-function onStrokeAdd(el){
+function onStrokeAdd(el) {
     strokeAdd(el)
     draw()
 }
 
 //add blur and update on the current Meme to true
-function onBlurAdd(el){
+function onBlurAdd(el) {
     blurAdd(el)
     draw()
 }
@@ -161,22 +163,49 @@ function resetValues() {
 
 function addLineButton() {
     var elTextBox = document.querySelector('.lines-box');
-    var strHTML = `<div class="text">${gMeme.currText.line}<button class="remove-line" onclick="onRemoveLine('${gMeme.currText.id}',this)">X</button></div>`
+    var strHTML = `<section><div class="text" onclick="onChooseLine(${gMeme.currText.id},this)">${gMeme.currText.line}</div>
+                  <button class="remove-line" onclick="onRemoveLine('${gMeme.currText.id}',this)">X</button></section>`
     elTextBox.innerHTML += strHTML;
 }
 
-function onRemoveLine(id,el){
-    removeLine(id)
+function onRemoveLine(id, el) {
+    var text = findTextById(id)
+    gMeme.existText.splice(text, 1);
     el.parentElement.innerHTML = ''
     draw()
 }
+
 //toggle gallery canvas
-function OnGoToGallery(){
+function OnGoToGallery() {
     toggleCanvasGalley();
     initGallery();
 }
 
-function onImportText(line){
+function onImportText(line) {
     importText(line)
     draw()
+}
+
+function onChooseLine(id, el) {
+    var text = findTextById(id)
+    gMeme.currText = gMeme.existText[text]
+    document.querySelector('.currText').value = gMeme.currText.line
+    el.parentElement.innerHTML = ''
+    draw()
+}
+
+function onCanvas(ev) {
+    var dudi = gMeme.existText.find(function (text) {
+        console.log('ev.ClientX : ', ev.clientX, '> text.x: ', text.x)
+        console.log('ev.ClientX : ', ev.clientX, '< text.x + text.xwidth: ', text.x + text.xwidth)
+        console.log('ev.ClientY : ', ev.clientY, '< text.y: ', text.y)
+        console.log('ev.ClientY : ', ev.clientY, '> text.y - text.yheight: ', text.y - text.yheight)
+        return (
+            ev.clientX >= text.x &&
+            ev.clientX <= text.x + text.xwidth &&
+            ev.clientY - gCanvas.offsetTop <= text.y &&
+            ev.clientY - gCanvas.offsetTop >= text.y + text.yheight
+        )
+    })
+    console.log(dudi)
 }

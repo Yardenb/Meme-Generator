@@ -5,7 +5,7 @@ var gMeme = {
     elCurrImg: undefined,
     existText: [
         {
-            id:id++,
+            id:id,
             line: '',
             size: 30,
             align: 'center',
@@ -17,7 +17,9 @@ var gMeme = {
             shadowColor: 'white',
             isStroked: false,
             isBlured: false,
-            isShadow: false
+            isShadow: false,
+            xwidth: 0,
+            yheight: 0
         }
     ],
     
@@ -109,6 +111,7 @@ function textDown() {
 
 //push the new text to the text array
 function createText() {
+    defaultt.id++
     let temp = Object.assign({},defaultt)
     gMeme.existText.unshift(temp)
    gMeme.currText = gMeme.existText[0]
@@ -142,10 +145,10 @@ function checkShadow(color, font) {
 }
 
 //removing the line from the texts array
-function removeLine(textId){
+function findTextById(textId){
     var idx = gMeme.existText.findIndex(function (text) {
         return text.id === textId;
     })
-    gMeme.existText.splice(idx,1);
+    return idx;
 }
 
