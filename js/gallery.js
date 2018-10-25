@@ -45,7 +45,8 @@ function onFilterByKeywords(elKeywords) {
 function onImgChosen(elImg) {
     setImgEl(elImg);
     toggleCanvasGalley();
-    drawImage(elImg);
+    initCanvas(elImg);
+    // drawImage(elImg);
 }
 function OnGoToCanvas() {
     //if keywords container is open - close it
