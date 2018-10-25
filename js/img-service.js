@@ -6,7 +6,7 @@ var id = 1;
 
 function createImgs() {
     gMemes = [
-        createImgEl(['banana', 'dudi', 'abi']), createImgEl(['banana']), createImgEl(['banana']), createImgEl(['banana']), createImgEl(['banana']),
+        createImgEl(['banana', 'dudi', 'abi']), createImgEl(['banana']), createImgEl(['pip']), createImgEl(['banana']), createImgEl(['banana']),
         createImgEl(['pip']), createImgEl(['cry']), createImgEl(['apple']), createImgEl(['funny']), createImgEl(['crazy']), createImgEl(['banana']),
         createImgEl(['banana']), createImgEl(['laugh']), createImgEl(['cat']), createImgEl(['banana rama'])
     ]

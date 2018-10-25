@@ -52,9 +52,26 @@ header{
 }
 .keyword-item{
     cursor: pointer;
-    
+    width: fit-content;
+    margin: 5px;
+}
+.size-xs{
+    font-size: 16px;
+}
+.size-s{
+    font-size: 22px;
+}
+.size-m{
+    font-size: 26px;
+}
+.size-l{
+    font-size: 30px;
+}
+.size-xl{
+    font-size: 34px;
 }
 .keywords-container{   
+    flex-wrap: wrap;
 }
 .keyword-headline{
     cursor: pointer;

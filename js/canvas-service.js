@@ -35,7 +35,7 @@ var defaultt = {
     x: 350,
     y: 50,
     shadowColor: 'white',
-    isStroked: false,
+    isStroked: true,
     isBlured: false,
     isShadow: false
 }
