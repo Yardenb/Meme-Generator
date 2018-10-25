@@ -54,21 +54,21 @@
         <button class="increase" onclick="OnGoToGallery()">go to gallery</button>
         <section class="text-container">
         <!-- first text bar -->
-            <input class="currText" type="text" placeholder="enter text here" onkeydown="importText(this.value)">
+            <input class="currText" type="text" placeholder="enter text here" onkeyup="onImportText(this.value)">
             <button class="move-up" onclick="onTextUp('currText')">up</button>
             <button class="move-down" onclick="onTextDown('currText')">down</button>
             <section class="font-colors">
                 Text Color:
-                <input type="color" class="bg-color" onchange="onChangeColor('currText',this.value)" /> Stroke Color:
-                <input type="color" class="stroke-color" onchange="onChangeStrokeColor('currText',this.value)" /> Add/Remove
+                <input type="color" class="bg-color" onchange="onChangeColor(this.value)" /> Stroke Color:
+                <input type="color" class="stroke-color" onchange="onChangeStrokeColor(this.value)" /> Add/Remove
                 <input class="stroke-check" type="checkbox" onchange="onStrokeAdd(this.checked)">
             </section>
             <section class="font-btns">
-                <button class="increase up btn-img" onclick="onIncreaseFontSize('currText')"></button>
-                <button class="decrease up btn-img" onclick="onDecreaseFontSize('currText')"></button>
-                <button class="align-left up btn-img" onclick="onChangeAlign('currText','left')"></button>
-                <button class="align-center up btn-img" onclick="onChangeAlign('currText','center')"></button>
-                <button class="align-right up btn-img" onclick="onChangeAlign('currText','right')"></button>
+                <button class="increase up btn-img" onclick="onIncreaseFontSize()"></button>
+                <button class="decrease up btn-img" onclick="onDecreaseFontSize()"></button>
+                <button class="align-left up btn-img" onclick="onChangeAlign('left')"></button>
+                <button class="align-center up btn-img" onclick="onChangeAlign('center')"></button>
+                <button class="align-right up btn-img" onclick="onChangeAlign('right')"></button>
                 </section>
                 <section class="text-shadow">
                     Shadow Color:
@@ -76,7 +76,7 @@
                     Add/Remove <input class="shadow-check" type="checkbox" onchange="onShadowAdd(this.checked)"> 
                     Blur:<input class="shadow-blur-check" type="checkbox" onchange="onBlurAdd(this.checked)">
                 </section>
-                    <select id="font-select" onchange="onSetFont('currText',this.value)">
+                    <select id="font-select" onchange="onSetFont(this.value)">
                         <option value="" disabled selected>Choose Font</option>
                         <option value="Ariel">Ariel</option>
                         <option value="fantasy">Fantasy</option>

@@ -62,7 +62,6 @@ function drawText(text) {
 function draw() {
     let el = getCurrImgEl();
     drawImage(el);
-    // drawText(gMeme.currText)
     for(var i=0; i<gMeme.existText.length; i++){
     drawText(gMeme.existText[i])
     }
@@ -145,6 +144,7 @@ function onCreateText() {
     addLineButton()
     createText()
     resetValues()
+    document.querySelector('.currText').value = ''
     draw()
 }
 
@@ -161,16 +161,22 @@ function resetValues() {
 
 function addLineButton() {
     var elTextBox = document.querySelector('.lines-box');
-    var strHTML = `<div class="text">${gMeme.currText.line}</div><button class="remove-line" onclick="onRemoveLine()">X</button>`
+    var strHTML = `<div class="text">${gMeme.currText.line}<button class="remove-line" onclick="onRemoveLine('${gMeme.currText.id}',this)">X</button></div>`
     elTextBox.innerHTML += strHTML;
 }
 
-function onRemoveLine(){
-    removeLine()
+function onRemoveLine(id,el){
+    removeLine(id)
+    el.parentElement.innerHTML = ''
     draw()
 }
 //toggle gallery canvas
 function OnGoToGallery(){
     toggleCanvasGalley();
     initGallery();
+}
+
+function onImportText(line){
+    importText(line)
+    draw()
 }
