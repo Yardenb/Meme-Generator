@@ -2,31 +2,14 @@
 var canvas;
 var gCanvas;
 
-//first canvas choose by resolution
-// function initCanvas() {
-//     let width = window.innerWidth;
-//     if (width > 750) {
-//         document.querySelector('.canvas-holder').innerHTML = `<canvas class="canvas-small" id="canvas" onclick="onCanvas(event)">`;
-
-//     } else {
-//         document.querySelector('.canvas-holder').innerHTML = `<canvas class="canvas-small" id="canvas" onclick="onCanvas(event)">`;
-
-//     }
-//     canvas = document.getElementById('canvas');
-//     gCanvas = canvas.getContext("2d");
-// }
-function initCanvas() {
+function initCanvas(img) {
+    var ratio = img.naturalWidth / img.naturalHeight;
+    var elCanvasContainer = document.querySelector('.canvas-holder');
     canvas = document.getElementById('canvas');
     gCanvas = canvas.getContext("2d");
-
-    window.addEventListener("resize", function () {
-        if (document.body.clientWidth > 700) {
-            canvas.style.width = '100%';
-            canvas.style.height = '100%';
-            canvas.width = canvas.offsetWidth;
-            canvas.height = canvas.offsetHeight;
-        }
-    })
+    canvas.width = elCanvasContainer.clientWidth;
+    canvas.height = canvas.width / ratio;
+    drawImage(img);
 }
 
 
@@ -35,7 +18,7 @@ function initCanvas() {
 function init() {
 
     createImgs()
-    initCanvas()
+    // initCanvas()
     setKeywords()
 }
 
@@ -59,7 +42,8 @@ function drawImage(elImg) {
     let imgRatio = imgW / imgH;
     console.log(imgRatio);
     let elContainer = document.querySelector('.canvas-holder');
-    elContainer.style.height = imgH / imgRatio + 'px';
+    elContainer.style.height = 500 / imgRatio + 'px';
+
 
 
 
@@ -223,19 +207,19 @@ function onChooseLine(id, el) {
 }
 
 function onCanvas(ev) {
-    console.log(ev.layerY,'ev.layerY')
+    console.log(ev.layerY, 'ev.layerY')
     var textObj = gMeme.existText.find(function (text) {
-        console.log('text y',text.y)
-        console.log('text y+yh',text.y + text.yheight)
+        console.log('text y', text.y)
+        console.log('text y+yh', text.y + text.yheight)
         return (
             ev.clientX >= text.x &&
-            ev.clientX <= text.x + text.xwidth && 
+            ev.clientX <= text.x + text.xwidth &&
             ev.layerY >= text.y &&
             ev.layerY <= text.y + text.yheight
         )
     })
     console.log(textObj)
-    if(textObj){
+    if (textObj) {
         gMeme.currText = textObj;
         document.querySelector('.currText').value = gMeme.currText.line
     }

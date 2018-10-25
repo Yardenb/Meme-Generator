@@ -76,6 +76,8 @@ header.gallery-header{
 }
 .keywords-container{   
     flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
 }
 .keyword-headline{
     cursor: pointer;
