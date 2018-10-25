@@ -41,10 +41,8 @@ header.gallery-header{
     margin: 0 auto;   
 }
 /* NAV */
-.nav-bar-gallery{
+.nav-bar{
     background-color: #6f96b7;
-    /* border-top: 1px solid black;
-    border-bottom: 1px solid black; */
 }
 .nav-item{
     margin: 0 5px;
@@ -58,7 +56,8 @@ header.gallery-header{
     padding: 10px;
 }
 .search-box{
-    max-width: 100px;
+    max-width: 6.5rem;
+    height: 2.5rem;
 }
 /* KEY WORDS */
 .keywords{
@@ -100,7 +99,7 @@ header.gallery-header{
     cursor: pointer;
     margin: 0 10px;
 }
-.btn-to-canvas{
+.btn{
     width: fit-content;
     background-color: #4CAF50;
     color: white;
@@ -108,9 +107,15 @@ header.gallery-header{
     text-align: center;
     font-family: 'heroes', Arial, sans-serif;
     margin-bottom: 5px;
+    border-radius: 10px;
+    letter-spacing: 0.1rem;
+    transition: 0.3s;
 }
-.btn-to-canvas:hover{
-    background-color: #4CAF50; 
+.btn:hover{
+    background-color: rgb(66, 206, 71); 
+}
+.search-text{
+    margin-right: 5px;
 }
 /* GALLERY */
 .img-container{

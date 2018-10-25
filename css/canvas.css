@@ -20,6 +20,15 @@
         background-repeat: no-repeat;
         background-position: center;
     }
+<<<<<<< HEAD
+=======
+    
+    .nav-bar-canvas{
+        padding: 0 20px;
+        flex-wrap: wrap;
+  
+    }
+>>>>>>> a30318d05908f834b803508e63d8925c63dd68b9
    
     .text-container{
         border-radius: 10px;
@@ -47,15 +56,20 @@
         margin-top:20px;
     }
     
-  
+  .save-btn{
+      background-color: #FFD700;
+      border-radius: 10px;
+      padding: 0 5px;
+      margin-bottom: 5px;
+  }
     
     header.canvas-header{
         background-color:#6f96b7;
         color: #000;
         text-align: center;
-        font-size: 3rem;
+        font-size: 2rem;
         width: 100%;
-        /* margin-bottom: 20px; */
+        
     }
     
     .canvas{
