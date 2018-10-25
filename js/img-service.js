@@ -1,7 +1,7 @@
 
 var gMemes;
 
-var id = 1;
+var imgId = 1;
 
 
 function createImgs() {
@@ -35,9 +35,10 @@ function getAllImgs() {
     return gMemes;
 }
 function createImgEl(keywords) {
+
     return {
-        id: id++,
-        url: `img/${id}.jpg`,
+        id: imgId,
+        url: `img/${imgId++}.jpg`,
         keywords: keywords
     }
 }

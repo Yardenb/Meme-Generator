@@ -3,23 +3,39 @@ var canvas;
 var gCanvas;
 
 //first canvas choose by resolution
+// function initCanvas() {
+//     let width = window.innerWidth;
+//     if (width > 750) {
+//         document.querySelector('.canvas-holder').innerHTML = `<canvas class="canvas-small" id="canvas" onclick="onCanvas(event)">`;
+
+//     } else {
+//         document.querySelector('.canvas-holder').innerHTML = `<canvas class="canvas-small" id="canvas" onclick="onCanvas(event)">`;
+
+//     }
+//     canvas = document.getElementById('canvas');
+//     gCanvas = canvas.getContext("2d");
+// }
 function initCanvas() {
-    let width = window.innerWidth;
-    if (width > 750) {
-        document.querySelector('.canvas-holder').innerHTML = `<canvas class="canvas-small" id="canvas" height="466" width="700" onclick="onCanvas(event)">`;
-
-    } else {
-        document.querySelector('.canvas-holder').innerHTML = `<canvas class="canvas-small" id="canvas" height="266" width="400"  onclick="onCanvas(event)">`;
-
-    }
     canvas = document.getElementById('canvas');
     gCanvas = canvas.getContext("2d");
+
+    window.addEventListener("resize", function () {
+        if (document.body.clientWidth > 700) {
+            canvas.style.width = '100%';
+            canvas.style.height = '100%';
+            canvas.width = canvas.offsetWidth;
+            canvas.height = canvas.offsetHeight;
+        }
+    })
 }
+
+
 
 //init function in the load of the page
 function init() {
-    initCanvas()
+
     createImgs()
+    initCanvas()
     setKeywords()
 }
 
@@ -35,6 +51,18 @@ function onSaveCanvas() {
 
 //draw the image
 function drawImage(elImg) {
+    console.log(elImg);
+    let imgW = elImg.width;
+    console.log(imgW);
+    let imgH = elImg.height;
+    console.log(imgH);
+    let imgRatio = imgW / imgH;
+    console.log(imgRatio);
+    let elContainer = document.querySelector('.canvas-holder');
+    elContainer.style.height = imgH / imgRatio + 'px';
+
+
+
     if (!elImg.complete) {
         setTimeout(elImg => drawImage(elImg), 50);
         return;

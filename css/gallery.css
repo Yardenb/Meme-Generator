@@ -21,20 +21,24 @@ a{
 
 
 /* HEADER */
-header{
-    background-color:#00FA9A;
+header.gallery-header{
+    background-color:#6f96b7;
     color: #000;
     text-align: center;
     font-size: 3rem;
     width: 100%;
+    padding: 20px;
+    
 }
 .container{
     width: 100%;
     margin: 0 auto;   
 }
 /* NAV */
-.nav-bar{
-    background-color: #48D1CC;
+.nav-bar-gallery{
+    background-color: #6f96b7;
+    /* border-top: 1px solid black;
+    border-bottom: 1px solid black; */
 }
 .nav-item{
     margin: 0 5px;

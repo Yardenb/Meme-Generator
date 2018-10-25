@@ -10,7 +10,25 @@ button{
     button:hover{
         background-color: #c8e6ff
     }
-    
+    .canvas-holder{
+        width:400px;
+        margin: 0 auto;
+        position: relative;
+    }
+    @media (min-width: 700px){
+        .canvas-holder{
+            width:500px;
+        }
+        canvas{
+            width: 100%;
+            height: 100%;
+        }
+    }
+    @media (min-width: 1200px){
+        .canvas-holder{
+            width:800px;
+        }
+    }
     .btn-img{
         background-size: 70%;
         background-repeat: no-repeat;
@@ -64,17 +82,15 @@ button{
         margin-top:20px;
     }
     
-    .nav-bar{
-        background-color: #48D1CC;
-    }
+  
     
-    header{
+    header.canvas-header{
         background-color:#6f96b7;
         color: #000;
         text-align: center;
         font-size: 3rem;
         width: 100%;
-        margin-bottom: 20px;
+        /* margin-bottom: 20px; */
     }
     
     .canvas{
