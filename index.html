@@ -54,7 +54,7 @@
         <button class="increase" onclick="OnGoToGallery()">go to gallery</button>
         <section class="text-container">
         <!-- first text bar -->
-            <input class="currText" type="text" placeholder="enter text here" onkeydown="importText(this.value)">
+            <input class="currText" type="text" placeholder="enter text here" onkeyup="importText(this.value)">
             <button class="move-up" onclick="onTextUp('currText')">up</button>
             <button class="move-down" onclick="onTextDown('currText')">down</button>
             <section class="font-colors">

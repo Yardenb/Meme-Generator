@@ -1,27 +1,32 @@
 function setKeywords() {
-    //if there is already keyword map -> get the map and add the words
+    // debugger;
     let allKeywords = [];
-   let oldKeywordMap=getFromStorage('keywordsCountMap');
-    let keywordsCountMap=oldKeywordMap? oldKeywordMap: {};
+    let allKeywordsData=[]
     gMemes.forEach(meme => {
+
+        
         meme.keywords.forEach(keyword => {
+            
+            
             //set unique list
             if (!allKeywords.includes(keyword)) {
-                allKeywords.push(keyword)
-            }
-            //count for existing keywords
-            if(!keywordsCountMap[keyword]){
-                keywordsCountMap[keyword]=1;
-            }
-            else{
-                keywordsCountMap[keyword]++
+  
+                
+                let newKeyword={name: keyword, count: 0}
+                allKeywords.push(keyword);
+                allKeywordsData.push(newKeyword);
             }
         })
     });
-    saveToStorage('keywordsCountMap',keywordsCountMap);
-    saveToStorage('keywords', allKeywords);
+    //TODO- if there is a list in storage, add the count and then save it to storage
+    saveToStorage('keywords', allKeywordsData);
 }
-function handleKeyword(){
-    console.log('in key');
+function handleKeyword(word){
+    console.log('in key',word);
+    let keywords=getFromStorage('keywords');
+    console.log(keywords);
+    
+    
+
     
 }

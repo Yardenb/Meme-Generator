@@ -18,7 +18,7 @@ function onShowKeyWords() {
     let keywords = getFromStorage('keywords');
     let strHTMLS = '';
     keywords.forEach(keyword => {
-        strHTMLS += `<span class="keyword-item flex justify-center align-center" onclick="onFilterByKeywords(this)">${keyword}</span>`
+        strHTMLS += `<span class="keyword-item flex justify-center align-center" onclick="onFilterByKeywords(this)">${keyword.name}</span>`
     });
     strHTMLS += '<span class="keyword-item flex justify-center align-center" onclick="initGallery()   "> Show All</span>';
     let elWordsBox = document.querySelector('.keywords-container');
@@ -61,16 +61,21 @@ function toggleKeywordsBox(elWordsBox) {
 function onSearchText(elSearch, ev) {
     //check if enter. 
     if (ev.keyCode === 13){
-        handleKeyword();
+        handleKeyword(elSearch.value);
     } 
     else {
         //searching
         let imgs = filterByPartialWord(elSearch.value);
-        if(!imgs[0]) showNoMemeMsg(elSearch.value);
-        else renderGallery(imgs)
-     
+        if(!imgs[0]){
+            showNoMemeMsg(elSearch.value);
+            renderGallery([]);
+        } 
+        else{
+            renderGallery(imgs);
+            let elMsgBox=document.querySelector('.hidden-msg');
+            elMsgBox.classList.add('hidden');
+        } 
     }
-
 }
 function showNoMemeMsg(userSearch){
     let elMsgBox=document.querySelector('.hidden-msg');
@@ -78,5 +83,5 @@ function showNoMemeMsg(userSearch){
     elMsgBox.innerText=`Sorry, no results for ${userSearch}`;
     if(elMsgBox.classList.contains('hidden'))
     elMsgBox.classList.remove('hidden');
-    
+
 }
