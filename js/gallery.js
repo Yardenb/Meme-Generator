@@ -8,8 +8,10 @@ function initGallery() {
 function renderGallery(imgs) {
     let strHTMLS = '';
     for (var i = 0; i < imgs.length; i++) {
-        strHTMLS += `<img class="meme meme${imgs[i].id}" src="img/${imgs[i].id}.jpg" onclick="onImgChosen(this)" />`
+        strHTMLS += `<img id="${imgs[i].id}" class="meme meme${imgs[i].id}" src="img/${imgs[i].id}.jpg" onclick="onImgChosen(this)" />`
     }
+    console.log(imgs);
+    
     var elImgs = document.querySelector('.gallery-img-container');
     elImgs.innerHTML = strHTMLS;
 }

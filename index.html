@@ -13,9 +13,9 @@
 <body onload="init()">
     <!-- ****************GALLERY START***************** -->
     <div class="gallery-container hidden">
-        <header>Meme Gallery</header>
+        <header class="gallery-header">Meme Gallery</header>
         <div class="container">
-            <nav class="nav-bar flex justify-center">
+            <nav class="nav-bar nav-bar-gallery flex justify-center">
                 <button class="btn" onclick="OnGoToCanvas()">go to canvas</button>
                 <div class="nav-item upload">upload pic in here</div>
             </nav>
@@ -44,8 +44,10 @@
 
     <!-- ****************CANVAS START******************************************************************************************************************** -->
     <div class="canvas-container">
-        <header>Meme Generator</header>
-        <div class="canvas-holder"></div>
+        <header class="canvas-header">Meme Generator</header>
+        <div class="canvas-holder">
+            <canvas id="canvas"></canvas>
+        </div>
         <!-- <canvas class="canvas-small" id="canvas" height="266" width="400"> </canvas> -->
         <section class="style-container">
             <button class="clear-btn" onclick="onClearCanvas()">Clear</button>
