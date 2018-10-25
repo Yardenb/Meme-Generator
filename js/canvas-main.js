@@ -62,7 +62,7 @@ function drawText(text) {
 function draw() {
     let el = getCurrImgEl();
     drawImage(el);
-    drawText(gMeme.currText)
+    // drawText(gMeme.currText)
     for(var i=0; i<gMeme.existText.length; i++){
     drawText(gMeme.existText[i])
     }
@@ -123,25 +123,26 @@ function onTextDown(txt) {
 }
 
 //add shadow and update on the current Meme to true
-function onShadowAdd(){
-    shadowAdd()
+function onShadowAdd(el){
+    shadowAdd(el)
     draw()
 }
 
 //add stroke and update on the current Meme to true
-function onStrokeAdd(){
-    strokeAdd()
+function onStrokeAdd(el){
+    strokeAdd(el)
     draw()
 }
 
 //add blur and update on the current Meme to true
-function onBlurAdd(){
-    blurAdd()
+function onBlurAdd(el){
+    blurAdd(el)
     draw()
 }
 
 //pushing text to array of existing text ,reset values, and render the all the text we have
 function onCreateText() {
+    addLineButton()
     createText()
     resetValues()
     draw()
@@ -160,5 +161,11 @@ function resetValues(){
 
 function addLineButton(){
     var elTextBox = document.querySelector('.lines-box');
-    var strHTML = `<button>`
+    var strHTML = `<div class="text">${gMeme.currText.line}</div><button class="remove-line" onclick="onRemoveLine()">X</button>`
+    elTextBox.innerHTML += strHTML;
+}
+
+function onRemoveLine(){
+    removeLine()
+    draw()
 }

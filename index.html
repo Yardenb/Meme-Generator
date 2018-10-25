@@ -60,7 +60,7 @@
                 Text Color:
                 <input type="color" class="bg-color" onchange="onChangeColor('currText',this.value)" /> Stroke Color:
                 <input type="color" class="stroke-color" onchange="onChangeStrokeColor('currText',this.value)" /> Add/Remove
-                <input class="stroke-check" type="checkbox" onchange="onStrokeAdd()">
+                <input class="stroke-check" type="checkbox" onchange="onStrokeAdd(this.checked)">
             </section>
             <section class="font-btns">
                 <button class="increase up btn-img" onclick="onIncreaseFontSize('currText')"></button>
@@ -72,8 +72,8 @@
                 <section class="text-shadow">
                     Shadow Color:
                     <input type="color" class="shadow-color" value="#ffffff" onchange="onChangeShadowColor('currText',this.value)"/> 
-                    Add/Remove <input class="shadow-check" type="checkbox" onchange="onShadowAdd(this)"> 
-                    Blur:<input class="shadow-blur-check" type="checkbox" onchange="onBlurAdd(this)">
+                    Add/Remove <input class="shadow-check" type="checkbox" onchange="onShadowAdd(this.checked)"> 
+                    Blur:<input class="shadow-blur-check" type="checkbox" onchange="onBlurAdd(this.checked)">
                 </section>
                     <select id="font-select" onchange="onSetFont('currText',this.value)">
                         <option value="" disabled selected>Choose Font</option>
