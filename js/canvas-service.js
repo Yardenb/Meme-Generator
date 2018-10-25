@@ -3,6 +3,7 @@
 var gMeme = {
     img: 5,
     elCurrImg: undefined,
+<<<<<<< HEAD
     existText: [
         {
             line: '',
@@ -34,6 +35,23 @@ var defaultt = {
     isStroked: false,
     isBlured: false,
     isShadow: false
+=======
+    currText: {
+        line: '',
+        size: 30,
+        align: 'center',
+        color: 'black',
+        stroke: 'black',
+        name: 'Ariel',
+        x: 350,
+        y: 50,
+        shadowColor: 'white',
+        isStroked: false,
+        isBlured: false,
+        isShadow: false
+    },
+    existText: []
+>>>>>>> 36eeb51863b53363aeb110dbb3e24a53a0b66d4c
 }
 
 
@@ -106,6 +124,7 @@ function textDown(txt) {
 //push the new text to the text array
 function createText() {
     gMeme.existText.push(gMeme.currText)
+<<<<<<< HEAD
    gMeme.existText[0]=defaultt;
    gMeme.currText=gMeme.existText[0];   
 }
@@ -124,6 +143,40 @@ function shadowAdd(el) {
 //updating blur state in the objective
 function blurAdd(el) {
     gMeme.currText.isBlured = el ? true : false;
+=======
+    gMeme.currText = {
+        line: '',
+        size: 30,
+        align: 'center',
+        color: 'black',
+        stroke: 'black',
+        name: 'Ariel',
+        x: 350,
+        y: 50,
+        shadowColor: 'white',
+        isStroked: false,
+        isBlured: false,
+        isShadow: false
+    }
+}
+
+//updating stroke state in the objective
+function strokeAdd() {
+    elStroke = document.querySelector('.stroke-check').checked
+    gMeme.currText.isStroked = elStroke ? true : false;
+}
+
+//updating shadow state in the objective
+function shadowAdd() {
+    elShadow = document.querySelector('.shadow-check').checked
+    gMeme.currText.isShadow = elShadow ? true : false;
+}
+
+//updating blur state in the objective
+function blurAdd() {
+    elBlur = document.querySelector('.shadow-blur-check').checked
+    gMeme.currText.isBlured = elBlur ? true : false;
+>>>>>>> 36eeb51863b53363aeb110dbb3e24a53a0b66d4c
 }
 
 //updating the line in the objective

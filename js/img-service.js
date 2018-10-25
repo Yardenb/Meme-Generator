@@ -26,11 +26,15 @@ function filterByPartialWord(str){
             return word.includes(str);  
         })
         if(CurrFiltered[0]){
-            filtered=filtered.concat(CurrFiltered);
-
+            filtered.push(meme);
         }
     })
+    console.log(filtered);
+    
     return filtered;
+}
+function getAllImgs() {
+    return gMemes;
 }
 function createImgEl(keywords) {
     return {
@@ -39,18 +43,5 @@ function createImgEl(keywords) {
         keywords: keywords
     }
 }
-function setKeywords() {
-    let allKeywords = [];
-    gMemes.forEach(meme => {
-        meme.keywords.forEach(keyword => {
-            if (!allKeywords.includes(keyword)) {
-                allKeywords.push(keyword)
-            }
-        })
-    });
-    saveToStorage('keywords', allKeywords);
-}
-function getImgs() {
-    return gMemes;
-}
+
 

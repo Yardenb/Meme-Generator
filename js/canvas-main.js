@@ -46,7 +46,7 @@ function drawImage(elImg) {
 function drawText(text) {
     let font = text
     let str = font.line;
-    checkShadow(font.shadowColor,font)
+    checkShadow(font.shadowColor, font)
     gCanvas.lineWidth = 1
     gCanvas.strokeStyle = font.stroke;
     gCanvas.textAlign = font.align;
@@ -149,7 +149,7 @@ function onCreateText() {
 }
 
 //reset all the values on the text box
-function resetValues(){
+function resetValues() {
     document.querySelector('.currText').value = ''
     document.querySelector('.bg-color').value = '#000000'
     document.querySelector('.stroke-color').value = '#000000'
@@ -159,7 +159,7 @@ function resetValues(){
     document.querySelector('.stroke-check').checked = false
 }
 
-function addLineButton(){
+function addLineButton() {
     var elTextBox = document.querySelector('.lines-box');
     var strHTML = `<div class="text">${gMeme.currText.line}</div><button class="remove-line" onclick="onRemoveLine()">X</button>`
     elTextBox.innerHTML += strHTML;
@@ -168,4 +168,9 @@ function addLineButton(){
 function onRemoveLine(){
     removeLine()
     draw()
+}
+//toggle gallery canvas
+function OnGoToGallery(){
+    toggleCanvasGalley();
+    initGallery();
 }
