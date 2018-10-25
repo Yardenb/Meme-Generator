@@ -8,12 +8,12 @@ var gMeme = {
             id:id,
             line: '',
             size: 30,
-            align: 'center',
+            align: 'left',
             color: 'black',
             stroke: 'black',
             name: 'Ariel',
             x: 350,
-            y: 50,
+            y: 460,
             shadowColor: 'white',
             isStroked: false,
             isBlured: false,
@@ -53,6 +53,7 @@ var gFontlocation = {
 //set image to canvas
 function setImgEl(elImg) {
     gMeme.elCurrImg = elImg;
+
 } function getCurrImgEl() {
     return gMeme.elCurrImg;
 }

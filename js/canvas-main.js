@@ -195,17 +195,20 @@ function onChooseLine(id, el) {
 }
 
 function onCanvas(ev) {
-    var dudi = gMeme.existText.find(function (text) {
-        console.log('ev.ClientX : ', ev.clientX, '> text.x: ', text.x)
-        console.log('ev.ClientX : ', ev.clientX, '< text.x + text.xwidth: ', text.x + text.xwidth)
-        console.log('ev.ClientY : ', ev.clientY, '< text.y: ', text.y)
-        console.log('ev.ClientY : ', ev.clientY, '> text.y - text.yheight: ', text.y - text.yheight)
+    console.log(ev.layerY,'ev.layerY')
+    var textObj = gMeme.existText.find(function (text) {
+        console.log('text y',text.y)
+        console.log('text y+yh',text.y + text.yheight)
         return (
             ev.clientX >= text.x &&
-            ev.clientX <= text.x + text.xwidth &&
-            ev.clientY - gCanvas.offsetTop <= text.y &&
-            ev.clientY - gCanvas.offsetTop >= text.y + text.yheight
+            ev.clientX <= text.x + text.xwidth && 
+            ev.layerY >= text.y &&
+            ev.layerY <= text.y + text.yheight
         )
     })
-    console.log(dudi)
+    console.log(textObj)
+    if(textObj){
+        gMeme.currText = textObj;
+        document.querySelector('.currText').value = gMeme.currText.line
+    }
 }
