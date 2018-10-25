@@ -15,15 +15,15 @@
     <div class="gallery-container">
         <header class="gallery-header">Meme Gallery</header>
         <div class="container">
-            <nav class="nav-bar nav-bar-gallery flex justify-center">
+            <nav class="nav-bar flex justify-center">
                 <button class="btn btn-to-canvas" onclick="OnGoToCanvas()">go to canvas</button>
             </nav>
             <section class="keywords">
                 <div class="keywords-header flex space-between align-center">
                     <span class="keyword-headline" onclick="onShowKeyWords()">Choose key words</span>
                     <div class="search-box-container flex ">
-                        <label>
-                            Search: 
+                        <label >
+                           <span class="search-text">Search:</span>  
                             <input type="text" id="search-box" class="search-box" name="text" value="" placeholder="Enter Keyword" onkeyup="onSearchText(this,event)" />
                         </label>
                     </div>
@@ -43,16 +43,17 @@
 
     <!-- ****************CANVAS START******************************************************************************************************************** -->
     <div class="canvas-container hidden">
-        <header class="canvas-header">Meme Generator</header>
+        <header class="canvas-header">Memerator</header>
+        <nav class="nav-bar nav-bar-canvas flex space-between">
+            <button class="btn" onclick="onClearCanvas()">Clear</button>
+            <button class="btn" onclick="OnGoToGallery()">go to gallery</button>
+            <a class="save-btn" onclick="onSaveCanvas()" download="YourCanvas.jpg">Save</a>
+        </nav>
         <div class="canvas-holder">
             <canvas id="canvas" onclick="onCanvas(event)"></canvas>
         </div>
         <!-- <canvas class="canvas-small" id="canvas" height="266" width="400"> </canvas> -->
-        <section class="style-container">
-            <button class="clear-btn" onclick="onClearCanvas()">Clear</button>
-            <a class="save-btn" onclick="onSaveCanvas()" download="YourCanvas.jpg">Save</a>
-        </section>
-        <button class="increase" onclick="OnGoToGallery()">go to gallery</button>
+        
         <section class="text-container">
             <!-- first text bar -->
             <input class="currText" type="text" placeholder="enter text here" onkeyup="onImportText(this.value)">
