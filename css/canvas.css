@@ -1,15 +1,15 @@
-button{
+/* button{
     width: 30px;
     height: 30px;
     border-radius: 10px;
     margin: 0 auto;
     background-color: white;
     cursor: pointer;
-    }
+    } */
 
-    button:hover{
+    /* button:hover{
         background-color: #c8e6ff
-    }
+    } */
     .canvas-holder{
         width:400px;
         height: auto;
@@ -33,27 +33,7 @@ button{
         background-position: center;
     }
     
-    
-    button.align-left{
-        background-image: url("../img/left.png");
-    }
-    
-    button.align-right{
-        background-image: url("../img/right.png")
-    }
-    
-     button.align-center{
-        background-image: url("../img/center.png")
-    }
-    
-    .increase{
-        background-image: url("../img/plus.png")
-    }
-    
-    .decrease{
-        background-image: url("../img/minus.png")
-    }
-    
+        
     .text-container{
         border-radius: 10px;
         text-align: center;

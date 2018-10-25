@@ -155,7 +155,7 @@ function onBlurAdd(el) {
 
 //pushing text to array of existing text ,reset values, and render the all the text we have
 function onCreateText() {
-    addLineButton()
+    // addLineButton()
     createText()
     resetValues()
     document.querySelector('.currText').value = ''
@@ -173,19 +173,19 @@ function resetValues() {
     document.querySelector('.stroke-check').checked = false
 }
 
-function addLineButton() {
-    var elTextBox = document.querySelector('.lines-box');
-    var strHTML = `<section><div class="text" onclick="onChooseLine(${gMeme.currText.id},this)">${gMeme.currText.line}</div>
-                  <button class="remove-line" onclick="onRemoveLine('${gMeme.currText.id}',this)">X</button></section>`
-    elTextBox.innerHTML += strHTML;
-}
+// function addLineButton() {
+//     var elTextBox = document.querySelector('.lines-box');
+//     var strHTML = `<section><div class="text" onclick="onChooseLine(${gMeme.currText.id},this)">${gMeme.currText.line}</div>
+//                   <button class="remove-line" onclick="onRemoveLine('${gMeme.currText.id}',this)">X</button></section>`
+//     elTextBox.innerHTML += strHTML;
+// }
 
-function onRemoveLine(id, el) {
-    var text = findTextById(id)
-    gMeme.existText.splice(text, 1);
-    el.parentElement.innerHTML = ''
-    draw()
-}
+// function onRemoveLine(id, el) {
+//     var text = findTextById(id)
+//     gMeme.existText.splice(text, 1);
+//     el.parentElement.innerHTML = ''
+//     draw()
+// }
 
 //toggle gallery canvas
 function OnGoToGallery() {
@@ -207,24 +207,13 @@ function onChooseLine(id, el) {
 }
 
 function onCanvas(ev) {
-<<<<<<< HEAD
     var textObj = gMeme.existText.find(function (text) {
         console.log(ev.layerX, 'ev layer X', text.x, 'text.X')
         return (
             ev.layerX >= text.x &&
             ev.layerX <= text.x + text.xwidth &&
             ev.layerY + text.yheight >= text.y &&
-=======
-    console.log(ev.layerY, 'ev.layerY')
-    var textObj = gMeme.existText.find(function (text) {
-        console.log('text y', text.y)
-        console.log('text y+yh', text.y + text.yheight)
-        return (
-            ev.clientX >= text.x &&
-            ev.clientX <= text.x + text.xwidth &&
-            ev.layerY >= text.y &&
->>>>>>> ece1bf55c1fa16726fa26f1ffa5009489ab1a154
-            ev.layerY <= text.y + text.yheight
+            ev.layerY + text.yheight <= text.y + text.yheight
         )
     })
     console.log(textObj)
@@ -241,5 +230,15 @@ function onRemoveText() {
     let temp = Object.assign({}, defaultt)
     gMeme.existText.unshift(temp)
     gMeme.currText = gMeme.existText[0]
+    draw()
+}
+
+function onMoveLeft(){
+    moveLeft()
+    draw()
+}
+
+function onMoveRight(){
+    moveRight()
     draw()
 }

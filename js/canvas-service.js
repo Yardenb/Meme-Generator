@@ -9,13 +9,13 @@ var gMeme = {
             line: '',
             size: 30,
             align: 'left',
-            color: 'black',
+            color: 'white',
             stroke: 'black',
             name: 'Impact',
             x: canvas.width/2,
             y: canvas.height/2,
             shadowColor: 'white',
-            isStroked: false,
+            isStroked: true,
             isBlured: false,
             isShadow: false,
             xwidth: 0,
@@ -31,7 +31,7 @@ var defaultt = {
     line: '',
     size: 30,
     align: 'left',
-    color: 'black',
+    color: 'white',
     stroke: 'black',
     name: 'Impact',
     x: canvas.width/2,
@@ -58,10 +58,11 @@ function setImgEl(elImg) {
     return gMeme.elCurrImg;
 }
 
-//save canvas - neeed
+//save canvas
 function saveCanvas() {
-    var elDownload = document.querySelector('******')
-    elDownload.href = gCanvas.toDataURL('jpeg')
+    var download = canvas.toDataURL('jpeg');
+    var elDwnld = document.querySelector('.save-btn')
+    elDwnld.href = download
 }
 
 //decrease the font size to both up and down
@@ -153,3 +154,10 @@ function findTextById(textId){
     return idx;
 }
 
+function moveLeft(){
+    gMeme.currText.x -= 15;
+}
+
+function moveRight(){
+    gMeme.currText.x += 15;
+}
