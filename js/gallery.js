@@ -13,16 +13,19 @@ function renderGallery(imgs) {
     var elImgs = document.querySelector('.gallery-img-container');
     elImgs.innerHTML = strHTMLS;
 }
-
-function onShowKeyWords() {
+function renderKeywords(){
     let keywords = getFromStorage('keywords');
     let strHTMLS = '';
     keywords.forEach(keyword => {
-        strHTMLS += `<span class="keyword-item flex justify-center align-center" onclick="onFilterByKeywords(this)">${keyword.name}</span>`
+        strHTMLS += `<span class="keyword-item size-${keyword.size}" onclick="onFilterByKeywords(this)">${keyword.name}</span>`
     });
-    strHTMLS += '<span class="keyword-item flex justify-center align-center" onclick="initGallery()   "> Show All</span>';
+    strHTMLS += '<span class="keyword-item" onclick="initGallery()"> Show All</span>';
     let elWordsBox = document.querySelector('.keywords-container');
     elWordsBox.innerHTML = strHTMLS;
+}
+function onShowKeyWords() {
+    renderKeywords();
+    let elWordsBox = document.querySelector('.keywords-container');
     toggleKeywordsBox(elWordsBox);
 }
 
@@ -56,7 +59,7 @@ function cleanSearchBox() {
 }
 function toggleKeywordsBox(elWordsBox) {
     elWordsBox.classList.toggle('hidden');
-    elWordsBox.classList.toggle('grid');
+    elWordsBox.classList.toggle('flex');
 }
 function onSearchText(elSearch, ev) {
     //check if enter. 
