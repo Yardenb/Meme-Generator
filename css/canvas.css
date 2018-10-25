@@ -20,36 +20,51 @@
         background-repeat: no-repeat;
         background-position: center;
     }
-<<<<<<< HEAD
-=======
     
     .nav-bar-canvas{
         padding: 0 20px;
         flex-wrap: wrap;
-  
+        margin-bottom: 5px;
     }
->>>>>>> a30318d05908f834b803508e63d8925c63dd68b9
-   
+   canvas{
+       border: 1px solid black;
+   }
+   .content{
+    flex-wrap: wrap;
+   }
     .text-container{
         border-radius: 10px;
         text-align: center;
         margin:auto;
-        width: 450px;
+        width: 100%;
         background-color: #6f96b7;
         padding:20px;
         border: 1px solid black;
+        font-size: 0.4rem;
     }
-    
+    .text-container button{
+        border-radius: 5px;
+    }
+   @media(min-width: 700px){
+    .text-container{
+        width: 450px;
+    }
+   } 
     .text-input{
         text-align: center;
         margin-top:20px;
         width: 90%;
     }
-    
+    .enter-text-item{
+        margin: 0 4px;
+    }
     .font-btns{
         margin-top:20px;
         text-align: center;
         margin-bottom:20px;
+    }
+    .font-btns button{
+        margin: 0 2px;
     }
     
     .font-colors{
@@ -63,13 +78,12 @@
       margin-bottom: 5px;
   }
     
-    header.canvas-header{
+  .canvas-header{
         background-color:#6f96b7;
         color: #000;
         text-align: center;
         font-size: 2rem;
         width: 100%;
-        
     }
     
     .canvas{

@@ -22,9 +22,10 @@
                 <div class="keywords-header flex space-between align-center">
                     <span class="keyword-headline" onclick="onShowKeyWords()">Choose key words</span>
                     <div class="search-box-container flex ">
-                        <label >
-                           <span class="search-text">Search:</span>  
-                            <input type="text" id="search-box" class="search-box" name="text" value="" placeholder="Enter Keyword" onkeyup="onSearchText(this,event)" />
+                        <label>
+                            <span class="search-text">Search:</span>
+                            <input type="text" id="search-box" class="search-box" name="text" value="" placeholder="Enter Keyword" onkeyup="onSearchText(this,event)"
+                            />
                         </label>
                     </div>
                 </div>
@@ -38,7 +39,7 @@
             </section>
         </div>
     </div>
-    <!-- ****************GALLERY END***************** -->
+
 
 
     <!-- ****************CANVAS START******************************************************************************************************************** -->
@@ -49,47 +50,49 @@
             <button class="btn" onclick="OnGoToGallery()">go to gallery</button>
             <a class="save-btn" onclick="onSaveCanvas()" download="YourCanvas.jpg">Save</a>
         </nav>
-        <div class="canvas-holder">
-            <canvas id="canvas" onclick="onCanvas(event)" ontouchstart="onCanvas(event)"></canvas>
-        </div>
-        <!-- <canvas class="canvas-small" id="canvas" height="266" width="400"> </canvas> -->
-        
-        <section class="text-container">
-            <!-- first text bar -->
-            <input class="currText" type="text" placeholder="enter text here" onkeyup="onImportText(this.value)">
-            <button class="confirm-text" onclick="onCreateText()">&#43</button>
-            <button class="remove-text" onclick="onRemoveText()">&#128465</button>
-            <section class="font-colors">
-                Text Color:
-                <input type="color" class="bg-color" onchange="onChangeColor(this.value)" value="#ffffff"/> Stroke Color:
-                <input type="color" class="stroke-color" onchange="onChangeStrokeColor(this.value)"/> Add/Remove
-                <input class="stroke-check" type="checkbox" onchange="onStrokeAdd(this.checked)"  checked="checked">
-            </section>
-            <section class="font-btns">Text Size:
-                <button class="increase up btn-img" onclick="onIncreaseFontSize()">&#43</button>
-                <button class="decrease up btn-img" onclick="onDecreaseFontSize()">−</button>
-                Move Text:
-                <button class="move-up" onclick="onTextUp('currText')">↑</button>
-                <button class="move-down" onclick="onTextDown('currText')">↓</button>    
-                <button class="btn-move-left" onclick="onMoveLeft()">←</button>
-                <button class="btn-move-left" onclick="onMoveRight()">→</button>
-            </section>
-            <section class="text-shadow">
-                Shadow Color:
-                <input type="color" class="shadow-color" value="#ffffff" onchange="onChangeShadowColor('currText',this.value)" />
-                Add/Remove <input class="shadow-check" type="checkbox" onchange="onShadowAdd(this.checked)">
-                Blur:<input class="shadow-blur-check" type="checkbox" onchange="onBlurAdd(this.checked)">
-            </section>
-            <select id="font-select" onchange="onSetFont(this.value)">
-                <option value="" disabled selected>Choose Font</option>
-                <option value="Impact">Impact</option>
-                <option value="fantasy">Fantasy</option>
-                <option value="Ariel">Ariel</option>
-            </select>
-        </section>
-        <section class="lines-box">
+        <div class="content flex justify-center">
+            <div class="canvas-holder">
+                <canvas id="canvas" onclick="onCanvas(event)" ontouchstart="onCanvas(event)"></canvas>
+            </div>
+            <!-- <canvas class="canvas-small" id="canvas" height="266" width="400"> </canvas> -->
 
-        </section>
+            <section class="text-container">
+                <!-- first text bar -->
+                <section class="enter-text  flex justify-center align-center">
+                    <button class="enter-text-item confirm-text" onclick="onCreateText()">&#43</button>
+                    <input class="enter-text-item currText" type="text" placeholder="enter text here" onkeyup="onImportText(this.value)">
+                    <button class="enter-text-item remove-text" onclick="onRemoveText()">&#128465</button>
+                </section>
+                <section class="font-colors flex justify-center align-center">
+                    Text Color:
+                    <input type="color" class="bg-color" onchange="onChangeColor(this.value)" value="#ffffff" /> Stroke Color:
+                    <input type="color" class="stroke-color" onchange="onChangeStrokeColor(this.value)" /> Add/Remove
+                    <input class="stroke-check" type="checkbox" onchange="onStrokeAdd(this.checked)" checked="checked">
+                </section>
+                <section class="font-btns flex justify-center align-center">Text Size:
+                    <button class="increase up btn-img" onclick="onIncreaseFontSize()">&#43</button>
+                    <button class="decrease up btn-img" onclick="onDecreaseFontSize()">−</button>
+                    Move Text:
+                    <button class="move-up" onclick="onTextUp('currText')">↑</button>
+                    <button class="move-down" onclick="onTextDown('currText')">↓</button>
+                    <button class="btn-move-left" onclick="onMoveLeft()">←</button>
+                    <button class="btn-move-left" onclick="onMoveRight()">→</button>
+                </section>
+                <section class="text-shadow flex justify-center align-center">
+                    Shadow Color:
+                    <input type="color" class="shadow-color" onchange="onChangeShadowColor(this.value)" value="#ffffff"/> Add/Remove
+                    <input class="shadow-check" type="checkbox" onchange="onShadowAdd(this.checked)"> Blur:
+                    <input class="shadow-blur-check" type="checkbox" onchange="onBlurAdd(this.checked)">
+                </section>
+                <select id="font-select" onchange="onSetFont(this.value)">
+                    <option value="" disabled selected>Choose Font</option>
+                    <option value="Impact">Impact</option>
+                    <option value="fantasy">Fantasy</option>
+                    <option value="Ariel">Ariel</option>
+                </select>
+            </section>
+        </div>
+
         <!-- ****************CANVAS END***************** -->
         <script src="js/util-service.js"></script>
         <script src="js/keyword-service.js"></script>

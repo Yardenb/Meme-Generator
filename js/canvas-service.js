@@ -93,7 +93,7 @@ function changeAlign(align) {
 }
 
 //changing the shadow color
-function changeShadowColtextor(color) {
+function changeShadowColor(color) {
     gMeme.currText.shadowColor = color;
 }
 

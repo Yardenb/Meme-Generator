@@ -15,6 +15,7 @@ function initCanvas(img) {
 //clear the canvas
 function onClearCanvas() {
     gCanvas.clearRect(0, 0, canvas.width, canvas.height)
+    gMeme.existText.splice(1)
 }
 //save canvas
 function onSaveCanvas() {
@@ -88,8 +89,8 @@ function onChangeStrokeColor(txt, color) {
 }
 
 //change shadow color and draw to new canvas if true
-function onChangeShadowColor(txt, color) {
-    changeShadowColor(txt, color)
+function onChangeShadowColor(color) {
+    changeShadowColor(color)
     draw()
 }
 
