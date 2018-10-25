@@ -2,6 +2,7 @@
 var canvas;
 var gCanvas;
 
+//initialize the canvas
 function initCanvas(img) {
     var ratio = img.naturalWidth / img.naturalHeight;
     var elCanvasContainer = document.querySelector('.canvas-holder');
@@ -130,10 +131,10 @@ function onBlurAdd(el) {
 
 //pushing text to array of existing text ,reset values, and render the all the text we have
 function onCreateText() {
-    // addLineButton()
+    let elText = document.querySelector('.currText').value
+    if (elText === '') return;
     createText()
     resetValues()
-    document.querySelector('.currText').value = ''
     draw()
 }
 
@@ -145,42 +146,21 @@ function resetValues() {
     document.querySelector('.shadow-color').value = '#ffffff'
     document.querySelector('.shadow-check').checked = false
     document.querySelector('.shadow-blur-check').checked = false
-    document.querySelector('.stroke-check').checked = false
+    document.querySelector('.stroke-check').checked = true;
 }
-
-// function addLineButton() {
-//     var elTextBox = document.querySelector('.lines-box');
-//     var strHTML = `<section><div class="text" onclick="onChooseLine(${gMeme.currText.id},this)">${gMeme.currText.line}</div>
-//                   <button class="remove-line" onclick="onRemoveLine('${gMeme.currText.id}',this)">X</button></section>`
-//     elTextBox.innerHTML += strHTML;
-// }
-
-// function onRemoveLine(id, el) {
-//     var text = findTextById(id)
-//     gMeme.existText.splice(text, 1);
-//     el.parentElement.innerHTML = ''
-//     draw()
-// }
-
 //toggle gallery canvas
 function OnGoToGallery() {
     toggleCanvasGalley();
     initGallery();
 }
 
+//add text to exist text array
 function onImportText(line) {
     importText(line)
     draw()
 }
 
-function onChooseLine(id, el) {
-    var text = findTextById(id)
-    gMeme.currText = gMeme.existText[text]
-    document.querySelector('.currText').value = gMeme.currText.line
-    el.parentElement.innerHTML = ''
-    draw()
-}
-
+//looking for text on the canvas with mouse
 function onCanvas(ev) {
     var textObj = gMeme.existText.find(function (text) {
         return (
@@ -196,22 +176,25 @@ function onCanvas(ev) {
     }
 }
 
+//remove curr text from array.
 function onRemoveText() {
+    let elText = document.querySelector('.currText').value
+    if (elText === '') return;
     var text = findTextById(gMeme.currText.id)
     gMeme.existText.splice(text, 1);
     resetValues()
-    let temp = Object.assign({}, defaultt)
-    gMeme.existText.unshift(temp)
     gMeme.currText = gMeme.existText[0]
     draw()
 }
 
-function onMoveLeft(){
+//move text left
+function onMoveLeft() {
     moveLeft()
     draw()
 }
 
-function onMoveRight(){
+//move text right
+function onMoveRight() {
     moveRight()
     draw()
 }

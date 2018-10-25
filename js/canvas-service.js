@@ -1,4 +1,5 @@
 var id = 0;
+
 //current meme prefernces - text and img;
 var gMeme = {
     img: 5,
@@ -154,10 +155,12 @@ function findTextById(textId){
     return idx;
 }
 
+//change the x of the current text to move left
 function moveLeft(){
     gMeme.currText.x -= 15;
 }
 
+//change the x of the current text to move right
 function moveRight(){
     gMeme.currText.x += 15;
 }
