@@ -24,7 +24,9 @@ a{
         display: block;
     }
 }
-
+button:disabled{
+    pointer-events:none;   
+}
 
 /* HEADER */
 header.gallery-header{

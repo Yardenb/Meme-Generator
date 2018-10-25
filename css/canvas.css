@@ -76,6 +76,10 @@
       border-radius: 10px;
       padding: 0 5px;
       margin-bottom: 5px;
+      transition: 0.3s;
+  }
+  .save-btn:hover{
+      background-color: #ffff00;
   }
     
   .canvas-header{

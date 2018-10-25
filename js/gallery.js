@@ -3,6 +3,7 @@ function init() {
     createImgs();
     setKeywords();
     initGallery();
+    
 }
 function initGallery() {
     let imgs = getAllImgs()
