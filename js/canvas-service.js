@@ -20,8 +20,10 @@ var gMeme = {
             isShadow: false
         }
     ],
+    
 }
-gMeme.currText = gMeme.existText[0];
+gMeme.currText= gMeme.existText[0]
+// gMeme.currText = gMeme.existText[0];
 var defaultt = {
     id:id,
     line: '',
@@ -111,7 +113,6 @@ function createText() {
     gMeme.existText.unshift(temp)
    gMeme.currText = gMeme.existText[0]
 }
-
 //updating stroke state in the objective
 function strokeAdd(el) {
     gMeme.currText.isStroked = el ? true : false;

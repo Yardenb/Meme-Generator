@@ -28,9 +28,7 @@ function filterByPartialWord(str){
         if(CurrFiltered[0]){
             filtered.push(meme);
         }
-    })
-    console.log(filtered);
-    
+    });  
     return filtered;
 }
 function getAllImgs() {
