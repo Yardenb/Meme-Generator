@@ -46,7 +46,7 @@
     <div class="canvas-container">
         <header class="canvas-header">Meme Generator</header>
         <div class="canvas-holder">
-            <canvas id="canvas"></canvas>
+            <canvas id="canvas" onclick="onCanvas(event)"></canvas>
         </div>
         <!-- <canvas class="canvas-small" id="canvas" height="266" width="400"> </canvas> -->
         <section class="style-container">
@@ -56,8 +56,9 @@
         <button class="increase" onclick="OnGoToGallery()">go to gallery</button>
         <section class="text-container">
             <!-- first text bar -->
-            <button class="confirm-text" onclick="onCreateText()">confirm</button>
             <input class="currText" type="text" placeholder="enter text here" onkeyup="onImportText(this.value)">
+            <button class="confirm-text" onclick="onCreateText()">Add</button>
+            <button class="remove-text" onclick="onRemoveText()">Remove</button>
             <button class="move-up" onclick="onTextUp('currText')">up</button>
             <button class="move-down" onclick="onTextDown('currText')">down</button>
             <section class="font-colors">
@@ -81,9 +82,9 @@
             </section>
             <select id="font-select" onchange="onSetFont(this.value)">
                 <option value="" disabled selected>Choose Font</option>
-                <option value="Ariel">Ariel</option>
+                <option value="Impact">Impact</option>
                 <option value="fantasy">Fantasy</option>
-                <option value="Times New Roman">Times New Roman</option>
+                <option value="Ariel">Ariel</option>
             </select>
         </section>
         <section class="lines-box">

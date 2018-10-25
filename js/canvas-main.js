@@ -181,7 +181,7 @@ function onCreateText() {
 //reset all the values on the text box
 function resetValues() {
     document.querySelector('.currText').value = ''
-    document.querySelector('.bg-color').value = '#000000'
+    document.querySelector('.bg-color').value = '#ffffff'
     document.querySelector('.stroke-color').value = '#000000'
     document.querySelector('.shadow-color').value = '#ffffff'
     document.querySelector('.shadow-check').checked = false
@@ -223,20 +223,28 @@ function onChooseLine(id, el) {
 }
 
 function onCanvas(ev) {
-    console.log(ev.layerY,'ev.layerY')
     var textObj = gMeme.existText.find(function (text) {
-        console.log('text y',text.y)
-        console.log('text y+yh',text.y + text.yheight)
+        console.log(ev.layerX, 'ev layer X', text.x, 'text.X')
         return (
-            ev.clientX >= text.x &&
-            ev.clientX <= text.x + text.xwidth && 
-            ev.layerY >= text.y &&
+            ev.layerX >= text.x &&
+            ev.layerX <= text.x + text.xwidth &&
+            ev.layerY + text.yheight >= text.y &&
             ev.layerY <= text.y + text.yheight
         )
     })
     console.log(textObj)
-    if(textObj){
+    if (textObj) {
         gMeme.currText = textObj;
         document.querySelector('.currText').value = gMeme.currText.line
     }
+}
+
+function onRemoveText() {
+    var text = findTextById(gMeme.currText.id)
+    gMeme.existText.splice(text, 1);
+    resetValues()
+    let temp = Object.assign({}, defaultt)
+    gMeme.existText.unshift(temp)
+    gMeme.currText = gMeme.existText[0]
+    draw()
 }

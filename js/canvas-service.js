@@ -11,9 +11,9 @@ var gMeme = {
             align: 'left',
             color: 'black',
             stroke: 'black',
-            name: 'Ariel',
-            x: 350,
-            y: 460,
+            name: 'Impact',
+            x: canvas.width/2,
+            y: canvas.height/2,
             shadowColor: 'white',
             isStroked: false,
             isBlured: false,
@@ -30,12 +30,12 @@ var defaultt = {
     id:id,
     line: '',
     size: 30,
-    align: 'center',
+    align: 'left',
     color: 'black',
     stroke: 'black',
-    name: 'Ariel',
-    x: 350,
-    y: 50,
+    name: 'Impact',
+    x: canvas.width/2,
+    y: canvas.height/2,
     shadowColor: 'white',
     isStroked: true,
     isBlured: false,
@@ -46,8 +46,8 @@ var defaultt = {
 //font location on canvas map
 var gFontlocation = {
     left: { x: 20 },
-    center: { x: 350 },
-    right: { x: 680 },
+    center: { x: canvas.width/2 },
+    right: { x: canvas.width - 20 },
 }
 
 //set image to canvas
