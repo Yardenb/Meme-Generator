@@ -1,15 +1,3 @@
-/* button{
-    width: 30px;
-    height: 30px;
-    border-radius: 10px;
-    margin: 0 auto;
-    background-color: white;
-    cursor: pointer;
-    } */
-
-    /* button:hover{
-        background-color: #c8e6ff
-    } */
     .canvas-holder{
         width:400px;
         height: auto;
@@ -32,8 +20,7 @@
         background-repeat: no-repeat;
         background-position: center;
     }
-    
-        
+   
     .text-container{
         border-radius: 10px;
         text-align: center;

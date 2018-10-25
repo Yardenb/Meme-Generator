@@ -1,5 +1,9 @@
 'use strict';
-
+function init() {
+    createImgs();
+    setKeywords();
+    initGallery();
+}
 function initGallery() {
     let imgs = getAllImgs()
     renderGallery(imgs);
@@ -9,9 +13,7 @@ function renderGallery(imgs) {
     let strHTMLS = '';
     for (var i = 0; i < imgs.length; i++) {
         strHTMLS += `<img id="${imgs[i].id}" class="meme meme${imgs[i].id}" src="img/${imgs[i].id}.jpg" onclick="onImgChosen(this)" />`
-    }
-    console.log(imgs);
-    
+    }  
     var elImgs = document.querySelector('.gallery-img-container');
     elImgs.innerHTML = strHTMLS;
 }
@@ -21,7 +23,7 @@ function renderKeywords(){
     keywords.forEach(keyword => {
         strHTMLS += `<span class="keyword-item size-${keyword.size}" onclick="onFilterByKeywords(this)">${keyword.name}</span>`
     });
-    strHTMLS += '<span class="keyword-item" onclick="initGallery()"> Show All</span>';
+    strHTMLS += '<span class="keyword-item-last" onclick="initGallery()"> Show All</span>';
     let elWordsBox = document.querySelector('.keywords-container');
     elWordsBox.innerHTML = strHTMLS;
 }

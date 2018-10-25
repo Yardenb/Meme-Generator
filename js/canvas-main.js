@@ -11,22 +11,10 @@ function initCanvas(img) {
     canvas.height = canvas.width / ratio;
     drawImage(img);
 }
-
-
-
-//init function in the load of the page
-function init() {
-
-    createImgs()
-    // initCanvas()
-    setKeywords()
-}
-
 //clear the canvas
 function onClearCanvas() {
     gCanvas.clearRect(0, 0, canvas.width, canvas.height)
 }
-
 //save canvas
 function onSaveCanvas() {
     saveCanvas()
@@ -34,19 +22,6 @@ function onSaveCanvas() {
 
 //draw the image
 function drawImage(elImg) {
-    console.log(elImg);
-    let imgW = elImg.width;
-    console.log(imgW);
-    let imgH = elImg.height;
-    console.log(imgH);
-    let imgRatio = imgW / imgH;
-    console.log(imgRatio);
-    let elContainer = document.querySelector('.canvas-holder');
-    elContainer.style.height = 500 / imgRatio + 'px';
-
-
-
-
     if (!elImg.complete) {
         setTimeout(elImg => drawImage(elImg), 50);
         return;
@@ -208,15 +183,13 @@ function onChooseLine(id, el) {
 
 function onCanvas(ev) {
     var textObj = gMeme.existText.find(function (text) {
-        console.log(ev.layerX, 'ev layer X', text.x, 'text.X')
         return (
             ev.layerX >= text.x &&
             ev.layerX <= text.x + text.xwidth &&
             ev.layerY + text.yheight >= text.y &&
-            ev.layerY + text.yheight <= text.y + text.yheight
+            ev.layerY <= text.y + text.yheight
         )
     })
-    console.log(textObj)
     if (textObj) {
         gMeme.currText = textObj;
         document.querySelector('.currText').value = gMeme.currText.line

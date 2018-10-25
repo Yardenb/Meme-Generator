@@ -12,27 +12,26 @@
 
 <body onload="init()">
     <!-- ****************GALLERY START***************** -->
-    <div class="gallery-container hidden">
+    <div class="gallery-container">
         <header class="gallery-header">Meme Gallery</header>
         <div class="container">
             <nav class="nav-bar nav-bar-gallery flex justify-center">
-                <button class="btn" onclick="OnGoToCanvas()">go to canvas</button>
-                <div class="nav-item upload">upload pic in here</div>
+                <button class="btn btn-to-canvas" onclick="OnGoToCanvas()">go to canvas</button>
             </nav>
             <section class="keywords">
-                <div class="keywords-header flex justify-center">
+                <div class="keywords-header flex space-between align-center">
                     <span class="keyword-headline" onclick="onShowKeyWords()">Choose key words</span>
-                    <div class="search-box">
+                    <div class="search-box-container flex ">
                         <label>
-                            Search:
-                            <input type="text" id="search-box" name="text" value="" placeholder="Enter Keyword" onkeyup="onSearchText(this,event)" />
+                            Search: 
+                            <input type="text" id="search-box" class="search-box" name="text" value="" placeholder="Enter Keyword" onkeyup="onSearchText(this,event)" />
                         </label>
                     </div>
                 </div>
                 <!-- add search -->
                 <div class="keywords-container hidden"></div>
             </section>
-            <section class="img-container ">
+            <section class="img-container">
                 Choose your meme
                 <div class="hidden-msg hidden"></div>
                 <div class="gallery-img-container grid"></div>
@@ -43,7 +42,7 @@
 
 
     <!-- ****************CANVAS START******************************************************************************************************************** -->
-    <div class="canvas-container">
+    <div class="canvas-container hidden">
         <header class="canvas-header">Meme Generator</header>
         <div class="canvas-holder">
             <canvas id="canvas" onclick="onCanvas(event)"></canvas>
