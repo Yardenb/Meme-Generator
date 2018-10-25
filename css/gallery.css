@@ -101,9 +101,17 @@ header.gallery-header{
     margin: 0 10px;
 }
 .btn-to-canvas{
-    width: 150px;
+    width: fit-content;
+    background-color: #4CAF50;
+    color: white;
+    padding:0 5px;
+    text-align: center;
+    font-family: 'heroes', Arial, sans-serif;
+    margin-bottom: 5px;
 }
-
+.btn-to-canvas:hover{
+    background-color: #4CAF50; 
+}
 /* GALLERY */
 .img-container{
     text-align: center;
