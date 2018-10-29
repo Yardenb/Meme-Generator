@@ -9,35 +9,37 @@
             width:500px;
             
         }
+        .text-container{
+            width: 450px;
+        }
     }
     @media (min-width: 1200px){
         .canvas-holder{
             width:800px;
         }
     }
-    .btn-img{
-        background-size: 70%;
-        background-repeat: no-repeat;
-        background-position: center;
-    }
     
-    .nav-bar-canvas{
-        padding: 0 20px;
-        flex-wrap: wrap;
-        margin-bottom: 5px;
+        canvas{
+        border: 1px solid black;
     }
-   canvas{
-       border: 1px solid black;
-   }
+   .canvas{
+    display: block;
+    outline: 1px solid black;
+    margin: 0 auto;
+}
+
+
    .content{
     flex-wrap: wrap;
    }
+
+
     .text-container{
         border-radius: 10px;
         text-align: center;
         margin:auto;
         width: 100%;
-        background-color: #6f96b7;
+        background-color: #f87e00;
         padding:20px;
         border: 1px solid black;
         font-size: 0.4rem;
@@ -45,24 +47,23 @@
     .text-container button{
         border-radius: 5px;
     }
-   @media(min-width: 700px){
-    .text-container{
-        width: 450px;
-    }
-   } 
+
+
+   .font-btns{
+    text-align: center;
+}
+
+
     .text-input{
         text-align: center;
         margin-top:20px;
         width: 90%;
     }
+
     .enter-text-item{
-        margin: 0 4px;
+        margin: 20px 4px;
     }
-    .font-btns{
-        margin-top:20px;
-        text-align: center;
-        margin-bottom:20px;
-    }
+
     .font-btns button{
         margin: 0 2px;
     }
@@ -71,35 +72,156 @@
         margin-top:20px;
     }
     
-  .save-btn{
-      background-color: #FFD700;
-      border-radius: 10px;
-      padding: 0 5px;
-      margin-bottom: 5px;
-      transition: 0.3s;
-  }
-  .save-btn:hover{
-      background-color: #ffff00;
-  }
     
-  .canvas-header{
-        background-color:#6f96b7;
-        color: #000;
-        text-align: center;
-        font-size: 2rem;
-        width: 100%;
+    
+    .font-size-display{
+        margin: 0 20px;
+        font-size: 30px;
+        color: white;
+        margin-bottom: 10px;
+        -webkit-text-stroke: #000 1px;
     }
+
+
     
-    .canvas{
-        display: block;
-        outline: 1px solid black;
-        margin: 0 auto;
-    }
-    
-    .text-shadow{
+
+  
+    .options-head{
         margin-bottom:20px;
     }
-  
+
+    .pos-btns{
+        font-size:25px;
+        margin:2px;
+        margin-top: 10px;
+    }
+
+    button {
+        background-color: white;
+        color: black;
+        border: 2px solid #555555;
+        cursor: pointer;
+        transition: all 0.3s;
+    }
+    
+    button:hover {
+        background-color: #555555;
+        color: white;
+    }
+
+    .text-section{
+        display:none;
+    }
+
+    .font-colors-section{
+        display:none;
+        font-size: 15px;
+    }
+ 
     .reveal{
         display:block;
     }
+
+    
+    /* edit-section */
+    .bg-container-btn{
+        color:white;
+    }
+
+    .section-head{
+        font-size:10px;
+    }
+
+
+    .edit-btn{
+        height: 40px;
+        width: 40px;
+    }
+
+
+    .checkmark {
+        height: 30px;
+        width: 30px;
+        cursor: pointer;
+    }
+
+
+    .add-remove-head {
+        margin: 5px 10px;
+        color:white;
+        -webkit-text-stroke: #000 1px;
+    }
+
+
+    .tablinks{
+        font-size: 40px;
+    }
+
+    .tab-links-btns{
+        margin-bottom: 20px;
+    }
+    
+    /* enter-text-section */
+    .confirm-text{
+        font-size:30px;
+    }
+    .remove-text{
+        font-size: 25px;
+    }
+
+    /* pos section */
+
+    .move-text-head{
+        margin-top:10px;
+    }
+
+
+
+    /* font-choose-section */
+    #font-select{
+        margin-top:20px;
+        font-size: 30px;
+    }
+
+    .font-ariel{
+        font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .font-outrun{
+        font-family: outrun, Helvetica, sans-serif;
+    }
+
+    .font-guthen{
+        font-family: guthen, Helvetica, sans-serif;
+    }
+
+    .font-kaushan{
+        font-family: kaushan, sans-serif;
+    }
+
+    .font-impact{
+        font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    }
+ 
+
+    @media (min-width: 950px){
+        .font-colors-section{
+            display:block
+        }
+        .font-edit-container{
+            display:block
+        }
+        .tab-links-btns{
+            display:none;
+        }
+        .text-container{
+            width: 100%;
+        }
+        .content{
+            flex-wrap: unset;
+        }
+    }
+
+  
+/* NAV BTNS */
+

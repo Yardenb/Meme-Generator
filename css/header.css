@@ -1,0 +1,22 @@
+header{
+    background-color:#00adb5;
+    color: rgb(255, 255, 255);
+    text-align: center;
+    font-size: 1.5rem;
+    width: 100%;
+    padding: 20px;
+    -webkit-text-stroke: #000 1px;
+}
+@media (min-width: 700px){
+    header{
+        font-size: 2rem;
+    }
+}
+@media (min-width: 1200px){
+    header{
+        font-size: 2.5rem;
+    }
+}
+.about{
+    cursor: pointer;
+}

@@ -8,13 +8,13 @@ var gMeme = {
         {
             id:id,
             line: '',
-            size: 30,
+            size: 40,
             align: 'left',
             color: 'white',
             stroke: 'black',
             name: 'Impact',
             x: canvas.width/2,
-            y: canvas.height/2,
+            y: 40,
             shadowColor: 'white',
             isStroked: true,
             isBlured: false,
@@ -22,21 +22,20 @@ var gMeme = {
             xwidth: 0,
             yheight: 0
         }
-    ],
-    
+    ],   
 }
 gMeme.currText= gMeme.existText[0]
 // gMeme.currText = gMeme.existText[0];
 var defaultt = {
     id:id,
     line: '',
-    size: 30,
+    size: 40,
     align: 'left',
     color: 'white',
     stroke: 'black',
     name: 'Impact',
     x: canvas.width/2,
-    y: canvas.height/2,
+    y: 40,
     shadowColor: 'white',
     isStroked: true,
     isBlured: false,
@@ -44,7 +43,7 @@ var defaultt = {
 }
 
 
-//font location on canvas map
+//font location on canvas map - not used - was in align function
 var gFontlocation = {
     left: { x: 20 },
     center: { x: canvas.width/2 },
@@ -115,6 +114,8 @@ function textDown() {
 //push the new text to the text array
 function createText() {
     defaultt.id++
+    defaultt.y += 40;
+    if(defaultt.y >= canvas.height) defaultt.y = 40;
     let temp = Object.assign({},defaultt)
     gMeme.existText.unshift(temp)
    gMeme.currText = gMeme.existText[0]

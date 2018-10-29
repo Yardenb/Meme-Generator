@@ -14,30 +14,24 @@
     <!-- ****************GALLERY START***************** -->
     <div class="gallery-container">
         <header class="gallery-header">Meme Gallery</header>
-        <div class="container">
-            <nav class="nav-bar flex justify-center">
-                <button class="btn btn-to-canvas" onclick="OnGoToCanvas()">go to canvas</button>
-            </nav>
-            <section class="keywords">
+            <section class="keywords-wrapper">
                 <div class="keywords-header flex space-between align-center">
-                    <span class="keyword-headline" onclick="onShowKeyWords()">Choose key words</span>
+                    <span class="keywords-headline" onclick="onShowKeyWords()">Choose key words</span>
                     <div class="search-box-container flex ">
                         <label>
                             <span class="search-text">Search:</span>
-                            <input type="text" id="search-box" class="search-box" name="text" value="" placeholder="Enter Keyword" onkeyup="onSearchText(this,event)"
+                            <input type="text" class="search-box" name="text" placeholder="Enter Keyword" onkeyup="onSearchText(this,event)"
                             />
                         </label>
                     </div>
                 </div>
-                <!-- add search -->
                 <div class="keywords-container hidden"></div>
             </section>
             <section class="img-container">
                 Choose your meme
                 <div class="hidden-msg hidden"></div>
-                <div class="gallery-img-container grid"></div>
+                <div class="gallery-img-container grid align-stretch"></div>
             </section>
-        </div>
     </div>
 
 
@@ -54,7 +48,7 @@
             <div class="canvas-holder">
                 <canvas id="canvas" onclick="onCanvas(event)" ontouchstart="onCanvas(event)"></canvas>
             </div>
-            <!-- <canvas class="canvas-small" id="canvas" height="266" width="400"> </canvas> -->
+           
 
             <section class="text-container">
                 <!-- first text bar -->

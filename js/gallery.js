@@ -3,6 +3,7 @@ function init() {
     createImgs();
     setKeywords();
     initGallery();
+    setModal();
     
 }
 function initGallery() {
@@ -10,11 +11,29 @@ function initGallery() {
     renderGallery(imgs);
 }
 
+
+function getWindowSize(){
+    return window.innerWidth;
+}
+function getImgEl(id){
+    return document.querySelector(`.meme${id}`)
+}
 function renderGallery(imgs) {
     let strHTMLS = '';
-    for (var i = 0; i < imgs.length; i++) {
-        strHTMLS += `<img id="${imgs[i].id}" class="meme meme${imgs[i].id}" src="img/${imgs[i].id}.jpg" onclick="onImgChosen(this)" />`
-    }  
+    if(getWindowSize()>700){
+        for (var i = 0; i < imgs.length; i++) {
+            strHTMLS += `<div class="img-box grid align-stretch">
+            <img class="meme meme${imgs[i].id}" src="img/${imgs[i].id}.jpg" />
+            <div class="img-middle" id="${imgs[i].id}" onclick="onImgChosen(this.id)"> <div class="text">Choose</div></div></div>`
+        }  
+    }
+    else{
+        for (var i = 0; i < imgs.length; i++) {
+            strHTMLS += `
+            <img id="${imgs[i].id}" class="meme meme${imgs[i].id}" src="img/${imgs[i].id}.jpg" onclick="onImgChosen(this.id)"/>`
+        }  
+    }
+  
     var elImgs = document.querySelector('.gallery-img-container');
     elImgs.innerHTML = strHTMLS;
 }
@@ -45,12 +64,13 @@ function onFilterByKeywords(elKeywords) {
     renderGallery(filtererd)
 }
 
-function onImgChosen(elImg) {
-    setImgEl(elImg);
-    toggleCanvasGalley();
-    initCanvas(elImg);
-    // drawImage(elImg);
-}
+
+function onImgChosen(imgId) {
+    let elImg= getImgEl(imgId);  
+     setImgEl(elImg);
+     toggleCanvasGalley();
+     initCanvas(elImg);
+ }
 function OnGoToCanvas() {
     //if keywords container is open - close it
     let elWordsBox = document.querySelector('.keywords-container');

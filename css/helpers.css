@@ -1,0 +1,28 @@
+/* FLEX */
+.flex{
+    display: flex;
+}
+.space-between{
+ justify-content: space-between;
+}
+.justify-center{
+    justify-content: center;
+}
+.align-center{
+    align-items: center;
+}
+/* GRID-HELPERS */
+.grid{
+    display: grid;
+}
+.align-stretch{
+    align-items: stretch;
+}
+.direction-row{
+    flex-direction: column;
+}
+
+/* OTHERS */
+.hidden{
+    display: none;
+}

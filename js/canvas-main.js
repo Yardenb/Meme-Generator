@@ -11,6 +11,8 @@ function initCanvas(img) {
     canvas.width = elCanvasContainer.clientWidth;
     canvas.height = canvas.width / ratio;
     drawImage(img);
+    let elFont = document.querySelector('.font-size-display')
+    elFont.innerHTML = gMeme.currText.size
 }
 //clear the canvas
 function onClearCanvas() {
@@ -65,14 +67,18 @@ function onChangeColor(txt, color) {
 }
 
 //increase font size  and draw to canvas
-function onIncreaseFontSize(txt) {
-    increaseFontSize(txt)
+function onIncreaseFontSize() {
+    increaseFontSize()
+    let elFont = document.querySelector('.font-size-display')
+    elFont.innerHTML = gMeme.currText.size
     draw()
 }
 
 //decrese font size  and draw to canvas
-function onDecreaseFontSize(txt) {
-    decreaseFontSize(txt)
+function onDecreaseFontSize() {
+    decreaseFontSize()
+    let elFont = document.querySelector('.font-size-display')
+    elFont.innerHTML = gMeme.currText.size
     draw()
 }
 
@@ -180,7 +186,7 @@ function onCanvas(ev) {
 //remove curr text from array.
 function onRemoveText() {
     let elText = document.querySelector('.currText').value
-    if (elText === '') return;
+    if (elText === '' || gMeme.existText.length === 1) return;
     var text = findTextById(gMeme.currText.id)
     gMeme.existText.splice(text, 1);
     resetValues()
@@ -198,4 +204,18 @@ function onMoveLeft() {
 function onMoveRight() {
     moveRight()
     draw()
+}
+
+function onEditButton(){
+    let elEdit = document.querySelector('.text-section')
+    elEdit.classList.add('reveal')
+    let elColor = document.querySelector('.font-colors-section')
+    elColor.classList.remove('reveal')
+}
+
+function onColorButton(){
+    let elColor = document.querySelector('.font-colors-section')
+    elColor.classList.add('reveal')
+    let elEdit = document.querySelector('.text-section')
+    elEdit.classList.remove('reveal')
 }
