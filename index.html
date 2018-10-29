@@ -7,21 +7,25 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="css/gallery.css">
     <link rel="stylesheet" href="css/canvas.css">
-    <title>Meme Gakkery</title>
+
+    <title>Meme Gallery</title>
 </head>
 
 <body onload="init()">
     <!-- ****************GALLERY START***************** -->
     <div class="gallery-container">
-        <header class="gallery-header">Meme Gallery</header>
-            <section class="keywords-wrapper">
+        <header class="gallery-header grid justify-center">
+            <span>Meme Gallery</span>
+            <spanc id="modalBtn" class="btn about">About Us</span>
+        </header>
+        <div class="container">
+            <section class="keywords">
                 <div class="keywords-header flex space-between align-center">
-                    <span class="keywords-headline" onclick="onShowKeyWords()">Choose key words</span>
+                    <span class="keyword-headline" onclick="onShowKeyWords()">Choose key words</span>
                     <div class="search-box-container flex ">
-                        <label>
+                        <label class="flex align-center">
                             <span class="search-text">Search:</span>
-                            <input type="text" class="search-box" name="text" placeholder="Enter Keyword" onkeyup="onSearchText(this,event)"
-                            />
+                            <input type="text" class="search-box" name="text" placeholder="Enter Keyword" onkeyup="onSearchText(this,event)" />
                         </label>
                     </div>
                 </div>
@@ -32,68 +36,136 @@
                 <div class="hidden-msg hidden"></div>
                 <div class="gallery-img-container grid align-stretch"></div>
             </section>
+        </div>
     </div>
 
 
 
     <!-- ****************CANVAS START******************************************************************************************************************** -->
-    <div class="canvas-container hidden">
+    <div id="aniTest" class="canvas-container hidden">
         <header class="canvas-header">Memerator</header>
-        <nav class="nav-bar nav-bar-canvas flex space-between">
-            <button class="btn" onclick="onClearCanvas()">Clear</button>
-            <button class="btn" onclick="OnGoToGallery()">go to gallery</button>
-            <a class="save-btn" onclick="onSaveCanvas()" download="YourCanvas.jpg">Save</a>
+        <nav class="nav-bar flex justify-center">
+            <button class="btn clear-btn nav-bar-item" onclick="onClearCanvas()">Clear</button>
+            <button class="btn nav-bar-item" onclick="OnGoToGallery()">go to gallery</button>
+            <a class="btn save-btn nav-bar-item" onclick="onSaveCanvas()" download="YourCanvas.jpg">Save</a>
         </nav>
+        <div class="uploadAndShareConainer flex space-between">
+            <div class="input-holder">
+                <label for="upload-btn" class="upload-btn btn">Choose file </label>
+                <input id="upload-btn"  type="file" name="image" onchange="onFileInputChange(event)" />
+            </div>
+            <div class="publish-form-container"></div>
+        </div>
         <div class="content flex justify-center">
             <div class="canvas-holder">
                 <canvas id="canvas" onclick="onCanvas(event)" ontouchstart="onCanvas(event)"></canvas>
             </div>
-           
 
             <section class="text-container">
-                <!-- first text bar -->
-                <section class="enter-text  flex justify-center align-center">
-                    <button class="enter-text-item confirm-text" onclick="onCreateText()">&#43</button>
-                    <input class="enter-text-item currText" type="text" placeholder="enter text here" onkeyup="onImportText(this.value)">
-                    <button class="enter-text-item remove-text" onclick="onRemoveText()">&#128465</button>
-                </section>
-                <section class="font-colors flex justify-center align-center">
-                    Text Color:
-                    <input type="color" class="bg-color" onchange="onChangeColor(this.value)" value="#ffffff" /> Stroke Color:
-                    <input type="color" class="stroke-color" onchange="onChangeStrokeColor(this.value)" /> Add/Remove
-                    <input class="stroke-check" type="checkbox" onchange="onStrokeAdd(this.checked)" checked="checked">
-                </section>
-                <section class="font-btns flex justify-center align-center">Text Size:
-                    <button class="increase up btn-img" onclick="onIncreaseFontSize()">&#43</button>
-                    <button class="decrease up btn-img" onclick="onDecreaseFontSize()">−</button>
-                    Move Text:
-                    <button class="move-up" onclick="onTextUp('currText')">↑</button>
-                    <button class="move-down" onclick="onTextDown('currText')">↓</button>
-                    <button class="btn-move-left" onclick="onMoveLeft()">←</button>
-                    <button class="btn-move-left" onclick="onMoveRight()">→</button>
-                </section>
-                <section class="text-shadow flex justify-center align-center">
-                    Shadow Color:
-                    <input type="color" class="shadow-color" onchange="onChangeShadowColor(this.value)" value="#ffffff"/> Add/Remove
-                    <input class="shadow-check" type="checkbox" onchange="onShadowAdd(this.checked)"> Blur:
-                    <input class="shadow-blur-check" type="checkbox" onchange="onBlurAdd(this.checked)">
-                </section>
-                <select id="font-select" onchange="onSetFont(this.value)">
-                    <option value="" disabled selected>Choose Font</option>
-                    <option value="Impact">Impact</option>
-                    <option value="fantasy">Fantasy</option>
-                    <option value="Ariel">Ariel</option>
-                </select>
-            </section>
-        </div>
+                <div class="tab-links-btns">
+                    <button class="tablinks" onclick="onEditButton()">&#9998</button>
+                    <button class="tablinks" onclick="onColorButton()">&#127912</button>
+                    <br>
+                </div>
+                <span class="options-head">Options</span>
+                <hr>
+                <div class="font-edit-container">
+                    <!-- first text bar -->
+                    <section class="text-section reveal">
+                        <section class="enter-text  flex justify-center align-center ">
+                            <input class="enter-text-item currText" type="text" placeholder="enter text here" onkeyup="onImportText(this.value)">
+                            <button class="enter-text-item confirm-text" onclick="onCreateText()">&#43</button>
+                            <button class="enter-text-item remove-text" onclick="onRemoveText()">&#128465</button>
+                        </section>
+                        <span class="text-size-head section-head">Text Size</span>
+                        <section class="font-btns size-btns flex justify-center align-center">
+                            <button class="decrease confirm-text" onclick="onDecreaseFontSize()">−</button>
+                            <span class="font-size-display"></span>
+                            <button class="increase confirm-text" onclick="onIncreaseFontSize()">&#43</button>
+                        </section>
+                        <span class="move-text-head section-head">Text Position</span>
+                        <section class="pos-btns-container">
+                            <button class="move-up pos-btns edit-btn" onclick="onTextUp('currText')">↑</button>
+                            <button class="move-down pos-btns edit-btn" onclick="onTextDown('currText')">↓</button>
+                            <button class="btn-move-left pos-btns edit-btn" onclick="onMoveLeft()">←</button>
+                            <button class="btn-move-left pos-btns edit-btn" onclick="onMoveRight()">→</button>
+                        </section>
+                        <select id="font-select" onchange="onSetFont(this.value)">
+                            <option value="" disabled selected>Choose Font</option>
+                            <option class="font-impact" value="Impact">Impact</option>
+                            <option class="font-ariel" value="Ariel">Ariel</option>
+                            <option class="font-outrun" value="outrun">Outrun</option>
+                            <option class="font-guthen" value="guthen">Guthen</option>
+                            <option class="font-kaushan" value="kaushan">Kaushan</option>
+                        </select>
+                    </section>
+                </div>
+                <section class="font-colors-section flex justify-center align-center">
+                    <span class="section-head">Text Color</span>
+                    <div>
+                        <input type="color" class="bg-color edit-btn" onchange="onChangeColor(this.value)" value="#ffffff" />
+                    </div>
+                    <span class="section-head">Stroke</span>
+                    <div class="bg-container-btn  flex justify-center align-center">
+                        <input type="color" class="stroke-color edit-btn" onchange="onChangeStrokeColor(this.value)" />
+                        <span class="add-remove-head">Add/Remove</span>
+                        <input class="stroke-check checkmark" type="checkbox" onchange="onStrokeAdd(this.checked)" checked="checked">
+                    </div>
+                    <span class="section-head">Shadow</span>
+                    <section class="text-shadow flex justify-center align-center">
+                        <div class="bg-container-btn  flex justify-center align-center">
+                            <input type="color" class="shadow-color edit-btn" onchange="onChangeShadowColor(this.value)" value="#ffffff" />
+                            <span class="add-remove-head">Add/Remove</span>
 
-        <!-- ****************CANVAS END***************** -->
-        <script src="js/util-service.js"></script>
-        <script src="js/keyword-service.js"></script>
-        <script src="js/img-service.js"></script>
-        <script src="js/gallery.js"></script>
-        <script src="js/canvas-service.js"></script>
-        <script src="js/canvas-main.js"></script>
+                            <input class="shadow-check checkmark" type="checkbox" onchange="onShadowAdd(this.checked)">
+                    </section>
+                    <span class="section-head">Blur</span>
+                    <div class="blur-section  flex justify-center align-center">
+                        <span class="add-remove-head">Add/Remove</span>
+                        <input class="shadow-blur-check checkmark" type="checkbox" onchange="onBlurAdd(this.checked)">
+                    </div>
+                    </div>
+
+                </section>
+        </div>
+        </section>
+    </div>
+
+    <!-- ****************CANVAS END***************** -->
+
+    <!-- *********************MODAL******************************* -->
+    <div id="aboutModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <span class="closeModalBtn">&times;</span>
+                <h2>Hello There</h2>
+            </div>
+            <div class="modal-body">
+                <h2>Hello, we are Charizard and Pikachu</h2>
+                <!-- <p>Hello, we are Charizard and Pikachu</p> -->
+
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, illum.
+                </p>
+                <div class="modal-img-container flex space-between">
+                    <img class="modal-img-item" src="img/pik.jpg" alt="">
+                    <img class="modal-img-item" src="img/char.jpg" alt="">
+                </div>
+            </div>
+            <div class="modal-footer">
+                <h3>Thanks for reading</h3>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/upload-service.js"></script>
+    <script src="js/util-service.js"></script>
+    <script src="js/keyword-service.js"></script>
+    <script src="js/img-service.js"></script>
+    <script src="js/gallery.js"></script>
+    <script src="js/modal-service.js"></script>
+    <script src="js/canvas-service.js"></script>
+    <script src="js/canvas-main.js"></script>
+
 
 </body>
 
