@@ -64,6 +64,8 @@ function onFilterByKeywords(elKeywords) {
     renderGallery(filtererd)
 }
 
+// hey hey hey
+
 
 function onImgChosen(imgId) {
     let elImg= getImgEl(imgId);  
